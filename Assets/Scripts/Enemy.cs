@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int maxHp;
-
+    //Comment!!!!!!!!!
     int hp;
 
     public MonoBehaviour[] behaviours;
