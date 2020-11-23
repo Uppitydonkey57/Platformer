@@ -2449,7 +2449,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerBodyBone/UpperLeftLegBone/LowerLeftLegBone/LeftFootBone
+    path: LowerBodyBone/UpperBodyBone/HeadBone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2459,7 +2459,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerBodyBone/UpperLeftLegBone/LowerLeftLegBone/LeftFootBone
+    path: LowerBodyBone/UpperBodyBone/HeadBone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2469,7 +2469,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerBodyBone/UpperLeftLegBone/LowerLeftLegBone/LeftFootBone
+    path: LowerBodyBone/UpperBodyBone/HeadBone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2569,7 +2569,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: LowerBodyBone/UpperBodyBone/HeadBone
+    path: LowerBodyBone/UpperLeftLegBone/LowerLeftLegBone/LeftFootBone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2579,7 +2579,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: LowerBodyBone/UpperBodyBone/HeadBone
+    path: LowerBodyBone/UpperLeftLegBone/LowerLeftLegBone/LeftFootBone
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2589,7 +2589,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: LowerBodyBone/UpperBodyBone/HeadBone
+    path: LowerBodyBone/UpperLeftLegBone/LowerLeftLegBone/LeftFootBone
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
