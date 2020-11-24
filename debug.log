@@ -1,0 +1,4 @@
+[1124/101804.090:INFO:CONSOLE(1)] "Long rAF frame-time", source: file:///C:/Program%20Files/Adobe/Adobe%20Photoshop%202020/Required/www-rich-tooltips/build/external.js (1)
+[1124/101804.199:ERROR:mf_helpers.cc(14)] Error in dxva_video_decode_accelerator_win.cc on line 1612
+[1124/101804.200:ERROR:mf_helpers.cc(14)] Error in dxva_video_decode_accelerator_win.cc on line 842
+[1124/141251.018:ERROR:browser_gpu_channel_host_factory.cc(139)] Failed to launch GPU process.
