@@ -19,7 +19,7 @@ TagManager:
   - PostProcessing
   - Arrow
   - Enemy
-  - 
+  - EnemyCollider
   - 
   - 
   - 
@@ -45,4 +45,10 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Tiles
+    uniqueID: 192846293
+    locked: 0
+  - name: Enemy
+    uniqueID: 3171548361
     locked: 0

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestTileBottomRight
+  m_Name: CastleTilemap_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 2029547172852972936, guid: 2d2d435d9f369494aa1a2de8cd85917f,
+  m_Sprite: {fileID: -2358258759557413173, guid: caea9a5873941ce49a06cf06bc68f803,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
@@ -34,4 +34,4 @@ MonoBehaviour:
     e33: 1
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
-  m_ColliderType: 1
+  m_ColliderType: 0

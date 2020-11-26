@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class GameMaster : MonoBehaviour
 {
@@ -9,12 +10,12 @@ public class GameMaster : MonoBehaviour
     void Update()
     {
         //Swap out the input later
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Keyboard.current.rKey.isPressed)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Keyboard.current.escapeKey.isPressed)
         {
             Application.Quit();
         }

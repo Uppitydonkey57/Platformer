@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1886391339950688690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7402345009328599321}
+  - component: {fileID: 4280787710070408389}
+  m_Layer: 12
+  m_Name: EnemyCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7402345009328599321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886391339950688690}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8152918142661498060}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &4280787710070408389
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886391339950688690}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.022703411, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.0803342
 --- !u!1 &8152918142661498064
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +80,7 @@ Transform:
   m_LocalScale: {x: 0.7963034, y: 0.7963034, z: 0.7963034}
   m_Children:
   - {fileID: 2654237881783632964}
+  - {fileID: 7402345009328599321}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -239,6 +287,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6231728640105435667, guid: a7b6572b930472d4e8f1e4e3914c377c,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1123418935
+      objectReference: {fileID: 0}
+    - target: {fileID: -6231728640105435667, guid: a7b6572b930472d4e8f1e4e3914c377c,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -2769917712193357747, guid: a7b6572b930472d4e8f1e4e3914c377c,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -413,6 +471,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5371965
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165948331753826289, guid: a7b6572b930472d4e8f1e4e3914c377c,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1123418935
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165948331753826289, guid: a7b6572b930472d4e8f1e4e3914c377c,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 6698270305644799423, guid: a7b6572b930472d4e8f1e4e3914c377c,

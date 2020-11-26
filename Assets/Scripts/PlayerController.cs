@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     // Movement Parameters
     [Header("Basic Movement")]
+
+    Controls controls;
 
     public Transform groundCheck;
     bool grounded;
@@ -113,10 +116,22 @@ public class PlayerController : MonoBehaviour
 
     public GameObject graphics;
 
+
     // Flipping
     bool isFacingRight;
 
     Vector2 velocity;
+
+    //Inputs
+    float horizontal;
+
+    bool jump;
+
+    bool jumpUp;
+
+    bool dash;
+
+    bool fireArrow;
 
     #endregion
 
@@ -124,6 +139,10 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        controls = new Controls();
+
+        controls.Enable();
+
         screenShake = FindObjectOfType<ScreenShake>();
 
         screenFreeze = FindObjectOfType<ScreenFreeze>();
@@ -141,17 +160,30 @@ public class PlayerController : MonoBehaviour
         jumps = extraJumps;
 
         weapon = GetComponent<Weapon>();
+
+        //controls.Player.Horizontal
+        controls.Player.Fire.performed += Shoot;
+
+        controls.Player.Jump.started += ctx => { jump = true; Invoke(nameof(JumpEnded), 0.01f); jumpUp = false; };
+        controls.Player.Jump.canceled += _ => jump = false;
+
+        controls.Player.JumpUp.performed += ctx => jumpUp = true;
+
+        controls.Player.Horizontal.performed += ctx => horizontal = ctx.ReadValue<float>();
+
     }
 
     void Update()
     {
+        //Debug.Log(jump);
+
         velocity = rb.velocity;
 
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
         grounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, whatIsGround) != null;
         
-        float horizontal = Input.GetAxisRaw("Horizontal");
+        /*float horizontal = Input.GetAxisRaw("Horizontal");
 
         bool jump = Input.GetButtonDown("Jump");
 
@@ -160,7 +192,7 @@ public class PlayerController : MonoBehaviour
         bool dash = Input.GetMouseButtonDown(0);
 
         bool fireArrow = Input.GetMouseButtonDown(0);
-
+        */
         Vector2 move = Vector2.zero;
 
         //Moving the characters
@@ -191,7 +223,7 @@ public class PlayerController : MonoBehaviour
         //Fire
         if (fireArrow)
         {
-            Shoot();
+            //Shoot();
         }
 
         //Dash
@@ -367,11 +399,14 @@ public class PlayerController : MonoBehaviour
 
     #region Action Functions
 
-    void Shoot()
+    void Shoot(InputAction.CallbackContext context)
     {
+        Debug.Log("Shoot");
+
         float initialRotation = weapon.firePoint.transform.rotation.z;
 
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
         Vector2 lookDirection = mousePos - (Vector2)weapon.firePoint.transform.position;
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
@@ -452,6 +487,11 @@ public class PlayerController : MonoBehaviour
         {
             StopDash();
         }
+    }
+
+    void JumpEnded()
+    {
+        jump = false;
     }
 
     #endregion

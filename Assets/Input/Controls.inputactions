@@ -15,14 +15,14 @@
                 },
                 {
                     "name": "Horizontal",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "5ba995e7-c1e2-4385-866e-f58ae5e328cc",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=2)"
                 },
                 {
-                    "name": "Dash",
+                    "name": "Fire",
                     "type": "Button",
                     "id": "626f84bc-8eb0-430d-ba05-e550e13c3e1e",
                     "expectedControlType": "Button",
@@ -34,6 +34,14 @@
                     "type": "Button",
                     "id": "439fcf90-8a50-431a-b391-2a7c7c88e826",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "d14a7f9e-983a-4e5a-b025-6f259950bfcc",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "Press(behavior=1)"
                 }
@@ -52,8 +60,8 @@
                 },
                 {
                     "name": "",
-                    "id": "1d0500f7-26df-4366-819b-06a184422d4a",
-                    "path": "<SwitchProControllerHID>/buttonSouth",
+                    "id": "981cb44b-5d39-445e-9326-a38bf056204b",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -167,29 +175,18 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Dash",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "a10991a2-4d08-4383-9642-665bcfaec2e2",
-                    "path": "<SwitchProControllerHID>/buttonWest",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6d66dc92-b131-4f91-a869-b975c5e93f81",
-                    "path": "<SwitchProControllerHID>/buttonSouth",
+                    "id": "a69f58b8-6ef3-4cd5-a6b1-716cd752a1d1",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "JumpUp",
+                    "groups": "Gamepad",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -199,8 +196,41 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard and Mouse",
                     "action": "JumpUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6faf7f45-6dcf-40d8-a857-8f7a3336a84e",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "JumpUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b0e3a11-22c2-4622-a07f-70e83d1f30a5",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd15015f-9bf5-4f42-81fb-4e93d05634da",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
