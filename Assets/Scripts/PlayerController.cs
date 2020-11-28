@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
 
 
     // Flipping
-    bool isFacingRight;
+    [HideInInspector] public bool isFacingRight;
 
     Vector2 velocity;
 
@@ -171,6 +171,11 @@ public class PlayerController : MonoBehaviour
 
         controls.Player.Horizontal.performed += ctx => horizontal = ctx.ReadValue<float>();
 
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 
     void Update()

@@ -20,6 +20,11 @@ public class Weapon : MonoBehaviour
     public float shootWait;
     bool canShoot = true;
 
+    public bool useShootPause;
+    public float ShootTime;
+    public float shootPauseTime;
+    bool shootPause = false;
+
     ScreenShake screenShake;
     ScreenFreeze screenFreeze;
 
@@ -27,11 +32,16 @@ public class Weapon : MonoBehaviour
     {
         screenShake = FindObjectOfType<ScreenShake>();
         screenFreeze = FindObjectOfType<ScreenFreeze>();
+
+        if (useShootPause)
+        {
+            StartCoroutine(ShootPause());
+        }
     }
 
     public void Attack()
     {
-        if (canShoot)
+        if (canShoot && !shootPause)
         {
             screenShake.Shake(screenShakeDuration, fireScreenShake);
             screenFreeze.Freeze(fireScreenFreeze);
@@ -60,5 +70,18 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(shootWait);
 
         canShoot = true;
+    }
+
+    IEnumerator ShootPause()
+    {
+        shootPause = true;
+
+        yield return new WaitForSeconds(shootPauseTime);
+
+        shootPause = false;
+
+        yield return new WaitForSeconds(ShootTime);
+
+        StartCoroutine(ShootPause());
     }
 }

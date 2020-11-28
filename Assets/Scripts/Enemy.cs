@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 
     public MonoBehaviour[] behaviours;
 
+    public Animator[] animatorBehaviours;
+
     public Color radiusColor = Color.white;
 
     public float activationRange;
@@ -53,10 +55,17 @@ public class Enemy : MonoBehaviour
 
         player = FindObjectOfType<PlayerController>();
 
-        foreach (MonoBehaviour behaviour in behaviours)
-        {
-            behaviour.enabled = false;
-        }
+        if (behaviours[0] != null)
+                foreach (MonoBehaviour behaviour in behaviours)
+                {
+                    behaviour.enabled = false;
+                }
+
+        if (animatorBehaviours != null)
+            foreach (Animator animator in animatorBehaviours)
+            {
+                animator.enabled = false;
+            }
     }
 
     // Update is called once per frame
@@ -134,9 +143,16 @@ public class Enemy : MonoBehaviour
 
     void Activate()
     {
-        foreach (MonoBehaviour behaviour in behaviours)
-        {
-            behaviour.enabled = true;
-        }
+        if (behaviours[0] != null)
+            foreach (MonoBehaviour behaviour in behaviours)
+            {
+                behaviour.enabled = true;
+            }
+
+        if (animatorBehaviours != null)
+            foreach (Animator animator in animatorBehaviours)
+            {
+                animator.enabled = true;
+            }
     }
 }

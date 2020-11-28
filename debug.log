@@ -9,3 +9,29 @@
 C:\fakepath(69,8-58): warning X3571: pow(f, e) will not work for negative f, use abs(f) or conditionally handle negative values if you expect them
 C:\fakepath(77,9-43): warning X3571: pow(f, e) will not work for negative f, use abs(f) or conditionally handle negative values if you expect them
 
+[1126/152626.509:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1126/170609.584:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1126/184316.384:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1126/184316.560:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1126/191814.994:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1126/191815.022:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/090156.724:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/090157.104:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/090157.457:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/090157.535:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/090157.544:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/090200.037:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/090201.726:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/090202.117:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/100037.698:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/100039.983:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/100040.293:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/100040.461:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/100042.806:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/100044.987:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/100045.301:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/100045.467:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/100047.811:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/100048.781:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/113909.889:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
+[1127/122057.506:WARNING:dns_config_service_win.cc(668)] Failed to read DnsConfig.
