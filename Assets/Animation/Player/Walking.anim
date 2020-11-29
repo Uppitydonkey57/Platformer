@@ -2594,4 +2594,20 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.5
+    functionName: ParticlePlay
+    data: 
+    objectReferenceParameter: {fileID: 5945911645313281458, guid: e7d9bd38b2c552148bade1a38fb49d7f,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.4833333
+    functionName: ParticlePlay
+    data: 
+    objectReferenceParameter: {fileID: 5945911645313281458, guid: e7d9bd38b2c552148bade1a38fb49d7f,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

@@ -38,7 +38,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886391339950688690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -169,9 +169,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.12540613}
   serializedVersion: 2
-  m_Radius: 0.49999997
+  m_Radius: 0.9226795
 --- !u!114 &8152918142661498061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +208,7 @@ MonoBehaviour:
   maxHp: 2
   behaviours:
   - {fileID: 8152918142661498061}
+  animatorBehaviours: []
   radiusColor: {r: 1, g: 1, b: 1, a: 1}
   activationRange: 20
   playerLayer:
@@ -220,7 +221,8 @@ MonoBehaviour:
   shakeAmountHit: 0.106
   shakeDurationDead: 0.266
   shakeAmountDead: 0.203
-  deathParticle: {fileID: 0}
+  deathParticle: {fileID: 3124198197923826982, guid: 0e09a8140817b694d9fd0c1521f851c2,
+    type: 3}
 --- !u!95 &8152918141434310554
 Animator:
   serializedVersion: 3
@@ -240,6 +242,100 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &3791913292274766520
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2654237881783632964}
+    m_Modifications:
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.22378
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.277398
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.81314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.81314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725187219225447380, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.81314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157881332910362866, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: m_Name
+      value: SkeletonFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000288883673178952, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000288883673178952, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48ea9e9dd8be9974c8f24b15c6a97965, type: 3}
 --- !u!1001 &8152918142511202541
 PrefabInstance:
   m_ObjectHideFlags: 0
