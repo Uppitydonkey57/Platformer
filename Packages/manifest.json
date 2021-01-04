@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.2d.tilemap.extras": "https://github.com/Unity-Technologies/2d-extras.git#master",
     "com.unity.2d.animation": "4.2.2",
     "com.unity.2d.ik": "3.0.2-preview.1",
     "com.unity.2d.pixel-perfect": "3.0.2",

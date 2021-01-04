@@ -738,7 +738,7 @@ MonoBehaviour:
   dashCutoff: 0
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 16385
   frontCheck: {fileID: 2554872031332579026}
   frontCheck2: {fileID: 7970415933859094625}
   holdOnTime: 20

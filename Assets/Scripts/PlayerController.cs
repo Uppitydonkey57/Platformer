@@ -133,6 +133,9 @@ public class PlayerController : MonoBehaviour
 
     bool fireArrow;
 
+    //Other
+    bool jumpActivatedByInput;
+
     #endregion
 
     #region Main Functions
@@ -169,7 +172,9 @@ public class PlayerController : MonoBehaviour
 
         controls.Player.JumpUp.performed += ctx => jumpUp = true;
 
+        controls.Player.Horizontal.started += ctx => horizontal = ctx.ReadValue<float>();
         controls.Player.Horizontal.performed += ctx => horizontal = ctx.ReadValue<float>();
+        controls.Player.Horizontal.canceled += ctx => horizontal = ctx.ReadValue<float>();
 
     }
 
@@ -220,16 +225,11 @@ public class PlayerController : MonoBehaviour
         // Using the jump buffer
         if (jump)
         {
+            jumpActivatedByInput = true;
             jumpBuffer = jumpBufferTime;
             noGroundStop = noGroundStopTime;
         }
         jumpBuffer -= Time.deltaTime;
-
-        //Fire
-        if (fireArrow)
-        {
-            //Shoot();
-        }
 
         //Dash
         if (dash && dashesLeft > 0)
@@ -273,10 +273,10 @@ public class PlayerController : MonoBehaviour
             jumps = extraJumps;
             jumpBuffer = 0;
             velocity.y = jumpTakeOffSpeed;
-        } else if (jumpUp)
+        } else if (jumpUp && jumpActivatedByInput)
         {
             // Continues going up if you hold down the button
-
+            
             if (velocity.y > 0)
             {
                 //how quickly the character falls
@@ -347,6 +347,7 @@ public class PlayerController : MonoBehaviour
 
         if (jump && jumps > 0 && !grounded && !wallJumpingX && !wallJumpingY)
         {
+            jumpActivatedByInput = true;
             velocity.y = jumpTakeOffSpeed;
             jumps--;
         }
@@ -486,11 +487,18 @@ public class PlayerController : MonoBehaviour
 
     #region Collision Management
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (noGroundStop < 0)
         {
             StopDash();
+        }
+
+        if (other.gameObject.tag == "BouncyPlatform")
+        {
+            jumpActivatedByInput = false;
+            jumpBuffer = jumpBufferTime;
+            noGroundStop = noGroundStopTime;
         }
     }
 

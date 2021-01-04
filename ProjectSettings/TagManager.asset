@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - PlayerProjectile
+  - BouncyPlatform
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Enemy
   - EnemyCollider
   - EnemyProjectile
-  - 
+  - Platforms
   - 
   - 
   - 
@@ -42,6 +43,9 @@ TagManager:
   m_SortingLayers:
   - name: Back
     uniqueID: 3636742435
+    locked: 0
+  - name: SmokeParticles
+    uniqueID: 3279404109
     locked: 0
   - name: Default
     uniqueID: 0

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8322357165154509645}
   - component: {fileID: 8322357165154509644}
   - component: {fileID: 3790227486924377668}
-  m_Layer: 0
-  m_Name: Block 1
+  m_Layer: 14
+  m_Name: OneWayPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

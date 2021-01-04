@@ -217,6 +217,9 @@ MonoBehaviour:
   knockbackSpeed: 0
   knockbackTime: 0
   deathWait: 0
+  shouldGetChildren: 1
+  hitFlashColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
+  hitFlashTime: 0.1
   shakeDurationHit: 0.14
   shakeAmountHit: 0.106
   shakeDurationDead: 0.266

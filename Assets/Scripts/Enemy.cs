@@ -34,6 +34,14 @@ public class Enemy : MonoBehaviour
 
     ScreenShake screenShake;
 
+    SpriteRenderer[] sprites;
+
+    public bool shouldGetChildren;
+
+    public Color hitFlashColor = Color.black;
+
+    [Range(0f, 0.3f)] public float hitFlashTime = 0.05f;
+
     [Range(0f, 1f)] public float shakeDurationHit;
     [Range(0f, 1f)] public float shakeAmountHit;
     [Space]
@@ -66,6 +74,14 @@ public class Enemy : MonoBehaviour
             {
                 animator.enabled = false;
             }
+
+        if (shouldGetChildren)
+        {
+            sprites = GetComponentsInChildren<SpriteRenderer>();
+        } else
+        {
+            sprites = GetComponents<SpriteRenderer>();
+        }
     }
 
     // Update is called once per frame
@@ -83,6 +99,7 @@ public class Enemy : MonoBehaviour
     {
         if (hp > hp + amount)
         {
+            StartCoroutine(HitFlash());
             screenShake.Shake(shakeDurationHit, shakeAmountHit);
         }
 
@@ -154,5 +171,20 @@ public class Enemy : MonoBehaviour
             {
                 animator.enabled = true;
             }
+    }
+
+    IEnumerator HitFlash()
+    {
+        foreach (SpriteRenderer sprite in sprites)
+        {
+            sprite.color = hitFlashColor;
+        }
+
+        yield return new WaitForSeconds(hitFlashTime);
+
+        foreach (SpriteRenderer sprite in sprites)
+        {
+            sprite.color = Color.white;
+        }
     }
 }
