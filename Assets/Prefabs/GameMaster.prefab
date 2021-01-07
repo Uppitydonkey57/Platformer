@@ -56,3 +56,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3394df62616019c40b6139d1f36a97aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MATS: {fileID: -6377232888322973022, guid: a7b6572b930472d4e8f1e4e3914c377c, type: 3}
+  isMatsMode: 0

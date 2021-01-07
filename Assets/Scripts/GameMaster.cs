@@ -10,8 +10,14 @@ public class GameMaster : MonoBehaviour
 
     public bool isMatsMode;
 
+    Controls controls;
+
     private void Start()
     {
+        controls = new Controls();
+
+        controls.Enable();
+
         if (isMatsMode)
         {
             foreach (SpriteRenderer rend in FindObjectsOfType<SpriteRenderer>())
@@ -19,20 +25,26 @@ public class GameMaster : MonoBehaviour
                rend.sprite = MATS;
             }
         }
+
+        controls.Player.Reset.performed += Restart;
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Swap out the input later
-        if (Keyboard.current.rKey.isPressed)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
         if (Keyboard.current.escapeKey.isPressed)
         {
             Application.Quit();
         }
+    }
+
+    private void Restart(InputAction.CallbackContext callback)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

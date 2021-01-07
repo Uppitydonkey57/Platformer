@@ -57,6 +57,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""b6fc701e-6abc-4464-a85e-301f268caf0b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
                 }
             ],
             ""bindings"": [
@@ -279,6 +287,50 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca3b22ad-69f9-4fe8-935f-6d9c5f61d35a"",
+                    ""path"": ""<Keyboard>/#(R)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Shoulders"",
+                    ""id"": ""96f9f1d4-b9c6-4f6c-9d35-51cfafdca2a6"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""f0fa5984-d06a-4a2f-a570-3ebe78e7b4d9"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""button"",
+                    ""id"": ""35a63dbf-54b8-4ab9-b92f-1689da4543a5"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -330,6 +382,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_JumpUp = m_Player.FindAction("JumpUp", throwIfNotFound: true);
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
+        m_Player_Reset = m_Player.FindAction("Reset", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_MainNavigate = m_Menu.FindAction("MainNavigate", throwIfNotFound: true);
@@ -387,6 +440,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_JumpUp;
     private readonly InputAction m_Player_MousePosition;
+    private readonly InputAction m_Player_Reset;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -396,6 +450,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @JumpUp => m_Wrapper.m_Player_JumpUp;
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
+        public InputAction @Reset => m_Wrapper.m_Player_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -420,6 +475,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @MousePosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
+                @Reset.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
+                @Reset.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
+                @Reset.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnReset;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -439,6 +497,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
+                @Reset.started += instance.OnReset;
+                @Reset.performed += instance.OnReset;
+                @Reset.canceled += instance.OnReset;
             }
         }
     }
@@ -501,6 +562,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnFire(InputAction.CallbackContext context);
         void OnJumpUp(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

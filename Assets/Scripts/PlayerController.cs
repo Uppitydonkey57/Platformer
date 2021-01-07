@@ -4,6 +4,7 @@ using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -134,7 +135,7 @@ public class PlayerController : MonoBehaviour
     bool fireArrow;
 
     //Other
-    bool jumpActivatedByInput;
+    bool jumpActivatedByInput = true;
 
     #endregion
 
@@ -394,11 +395,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (wallJumpingX || wallJumpingY)
         {
-            //changeVelocity = rb.velocity;
+            changeVelocity.x = velocity.x;
 
-            //changeVelocity.x = velocity.x;
+            changeVelocity.y = velocity.y;
 
-            rb.velocity = velocity;
+            rb.velocity = velocity + new Vector2(move.x * maxSpeed, 0);
         }
     }
     #endregion
@@ -494,11 +495,17 @@ public class PlayerController : MonoBehaviour
             StopDash();
         }
 
-        if (other.gameObject.tag == "BouncyPlatform")
+        if (other.gameObject.CompareTag("BouncyPlatform"))
         {
             jumpActivatedByInput = false;
             jumpBuffer = jumpBufferTime;
             noGroundStop = noGroundStopTime;
+        }
+
+        if (other.gameObject.CompareTag("DamageZone"))
+        {
+            Destroy(gameObject);
+            FindObjectOfType<CinemachineBrain>().enabled = false;
         }
     }
 
