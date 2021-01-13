@@ -59,7 +59,6 @@ GameObject:
   - component: {fileID: 8152918142661498067}
   - component: {fileID: 8152918142661498066}
   - component: {fileID: 8152918142661498065}
-  - component: {fileID: 8152918142661498061}
   - component: {fileID: 8152918142661498063}
   m_Layer: 0
   m_Name: EvilSkull
@@ -172,27 +171,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.12540613}
   serializedVersion: 2
   m_Radius: 0.9226795
---- !u!114 &8152918142661498061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8152918142661498064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44907ba748aec544294112d8b271527b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  wanderSpeed: 0
-  targetSpeed: 12
-  targetRadius: 14.09
-  dashingSpeed: 12
-  dashTime: 1
-  dashRadius: 5.91
 --- !u!114 &8152918142661498063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 2
   behaviours:
-  - {fileID: 8152918142661498061}
+  - {fileID: 0}
   animatorBehaviours: []
   radiusColor: {r: 1, g: 1, b: 1, a: 1}
   activationRange: 20
@@ -218,6 +196,7 @@ MonoBehaviour:
   knockbackTime: 0
   deathWait: 0
   shouldGetChildren: 1
+  isActive: 0
   hitFlashColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
   hitFlashTime: 0.1
   shakeDurationHit: 0.14

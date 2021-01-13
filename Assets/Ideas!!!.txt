@@ -12,3 +12,15 @@ Crumble Platforms
 
 Area 2 Mechanics:
 Switching Platforms
+
+Fixing Stuff:
+Fix wall jump.
+
+gravity is 7
+
+PARAMETERS:
+TargetSpeed = 12
+targetradius = 14.09
+dashingspeed = 12
+dashtime = 1
+dashradius = 5.91

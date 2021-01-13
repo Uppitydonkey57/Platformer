@@ -317,6 +317,7 @@ public class PlayerController : MonoBehaviour
         if (wallSliding)
         {
             velocity = new Vector2(velocity.x, Mathf.Clamp(velocity.y, -wallSlidingSpeed, float.MaxValue));
+            jumps = extraJumps;
         }
 
         //Wall Jumping
@@ -346,7 +347,7 @@ public class PlayerController : MonoBehaviour
             velocity = new Vector2(velocity.x, yWallForce);
         }
 
-        if (jump && jumps > 0 && !grounded && !wallJumpingX && !wallJumpingY)
+        if (jump && jumps > 0 && !grounded && !wallJumpingX && !wallJumpingY && groundRemember < 0)
         {
             jumpActivatedByInput = true;
             velocity.y = jumpTakeOffSpeed;

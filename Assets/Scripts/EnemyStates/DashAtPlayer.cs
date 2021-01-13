@@ -2,49 +2,73 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInRange : StateMachineBehaviour
+public class DashAtPlayer : StateMachineBehaviour
 {
-    public enum SwitchType { Boolean, Trigger }
+    PlayerController player;
 
-    public SwitchType switchType;
+    Rigidbody2D rb;
 
-    public string triggerName;
+    bool isFlipped;
 
-    public float range;
+    Transform transform;
 
-    public LayerMask playerLayer;
+    public float dashingSpeed;
 
-    Transform player;
-
-    Enemy enemy;
+    public float dashTime;
+    float time;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player = FindObjectOfType<PlayerController>().transform;
+        time = dashTime;
 
-        enemy = animator.GetComponent<Enemy>();
+        rb = animator.GetComponent<Rigidbody2D>();
 
-        if (enemy == null)
+        if (rb == null)
         {
-            enemy = animator.GetComponentInParent<Enemy>();
+            rb = animator.GetComponentInParent<Rigidbody2D>();
         }
+
+        transform = animator.transform;
+
+        if (rb == null)
+        {
+            transform = animator.GetComponentInParent<Transform>();
+        }
+
+        player = FindObjectOfType<PlayerController>();
+
+        Vector2 moveDirection = ((Vector2)player.transform.position - rb.position).normalized;
+
+        rb.velocity = moveDirection * dashingSpeed;
+
+        /*if (player.transform.position.x < rb.position.x && !isFlipped)
+        {
+            Flip();
+        }
+        else if (player.transform.position.x > rb.position.x && isFlipped)
+        {
+            Flip();
+        }*/
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Physics2D.OverlapCircle(enemy.transform.position, range, playerLayer))
+        time -= Time.deltaTime;
+
+        if (time <= 0)
         {
-            if (switchType == SwitchType.Trigger)
-            {
-                animator.SetTrigger(triggerName);
-            } else if (switchType == SwitchType.Boolean)
-            {
-                animator.SetBool(triggerName, true);
-            }
-            
+            rb.velocity = Vector2.zero;
+            animator.SetBool("Dashing", false);
         }
+    }
+
+    private void Flip()
+    {
+        isFlipped = !isFlipped;
+
+        rb.transform.Rotate(180, 0, 0);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

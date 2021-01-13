@@ -2,27 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInRange : StateMachineBehaviour
+public class ActiveSwitch : StateMachineBehaviour
 {
-    public enum SwitchType { Boolean, Trigger }
-
-    public SwitchType switchType;
-
     public string triggerName;
-
-    public float range;
-
-    public LayerMask playerLayer;
-
-    Transform player;
 
     Enemy enemy;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player = FindObjectOfType<PlayerController>().transform;
-
         enemy = animator.GetComponent<Enemy>();
 
         if (enemy == null)
@@ -34,16 +22,9 @@ public class PlayerInRange : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Physics2D.OverlapCircle(enemy.transform.position, range, playerLayer))
+        if (enemy.isActive)
         {
-            if (switchType == SwitchType.Trigger)
-            {
-                animator.SetTrigger(triggerName);
-            } else if (switchType == SwitchType.Boolean)
-            {
-                animator.SetBool(triggerName, true);
-            }
-            
+            animator.SetTrigger(triggerName);
         }
     }
 

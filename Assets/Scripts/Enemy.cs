@@ -38,6 +38,8 @@ public class Enemy : MonoBehaviour
 
     public bool shouldGetChildren;
 
+    public bool isActive;
+
     public Color hitFlashColor = Color.black;
 
     [Range(0f, 0.3f)] public float hitFlashTime = 0.05f;
@@ -160,6 +162,8 @@ public class Enemy : MonoBehaviour
 
     void Activate()
     {
+        isActive = true;
+
         if (behaviours[0] != null)
             foreach (MonoBehaviour behaviour in behaviours)
             {

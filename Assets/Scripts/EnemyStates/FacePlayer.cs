@@ -2,49 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInRange : StateMachineBehaviour
+public class FacePlayer : StateMachineBehaviour
 {
-    public enum SwitchType { Boolean, Trigger }
+    PlayerController player;
 
-    public SwitchType switchType;
+    Rigidbody2D rb;
 
-    public string triggerName;
+    bool isFlipped;
 
-    public float range;
-
-    public LayerMask playerLayer;
-
-    Transform player;
-
-    Enemy enemy;
+    Transform transform;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player = FindObjectOfType<PlayerController>().transform;
+        rb = animator.GetComponent<Rigidbody2D>();
 
-        enemy = animator.GetComponent<Enemy>();
-
-        if (enemy == null)
+        if (rb == null)
         {
-            enemy = animator.GetComponentInParent<Enemy>();
+            rb = animator.GetComponentInParent<Rigidbody2D>();
         }
+
+        transform = animator.transform;
+
+        if (rb == null)
+        {
+            transform = animator.GetComponentInParent<Transform>();
+        }
+
+        player = FindObjectOfType<PlayerController>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Physics2D.OverlapCircle(enemy.transform.position, range, playerLayer))
+        Vector2 lookDirection = (Vector2)player.transform.position - rb.position;
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+
+        rb.rotation = angle;
+
+        if (player.transform.position.x < rb.position.x && !isFlipped)
         {
-            if (switchType == SwitchType.Trigger)
-            {
-                animator.SetTrigger(triggerName);
-            } else if (switchType == SwitchType.Boolean)
-            {
-                animator.SetBool(triggerName, true);
-            }
-            
+            Flip();
         }
+        else if (player.transform.position.x > rb.position.x && isFlipped)
+        {
+            Flip();
+        }
+    }
+
+    private void Flip()
+    {
+        isFlipped = !isFlipped;
+
+        rb.transform.Rotate(180, 0, 0);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
