@@ -94,6 +94,8 @@ public class PlayerController : MonoBehaviour
 
     public float wallSlidingSpeed;
 
+    bool hasWallFlipped;
+
     // Wall Jump Parameters
     [Header("Wall Jump")]
 
@@ -106,6 +108,8 @@ public class PlayerController : MonoBehaviour
     bool wallJumpingY;
 
     bool jumpFacingRight;
+
+    public Vector2 rangeSize;
 
     [Header("Shooting")]
     public GameObject projectile;
@@ -286,8 +290,8 @@ public class PlayerController : MonoBehaviour
         }
 
         //Wall Slide
-        isTouchingFront = Physics2D.OverlapCircle(frontCheck.position, 0.1f, whatIsGround);
-        isTouchingFront2 = Physics2D.OverlapCircle(frontCheck2.position, 0.1f, whatIsGround);
+        isTouchingFront = Physics2D.OverlapBox(frontCheck.position, rangeSize, whatIsGround);
+        isTouchingFront2 = Physics2D.OverlapBox(frontCheck2.position, rangeSize, whatIsGround);
 
         /*Debug.Log(holdOn);
 
@@ -339,7 +343,7 @@ public class PlayerController : MonoBehaviour
 
         if (wallJumpingX)
         {
-            velocity = new Vector2(xWallForce * ((isFacingRight || isFacingRight && !jumpFacingRight) ? 1 : -1), velocity.y);
+            velocity = new Vector2(xWallForce * ((isFacingRight || isFacingRight && !jumpFacingRight) ? 1 : -1) * -1, velocity.y);
         }
 
         if (wallJumpingY)
@@ -355,19 +359,38 @@ public class PlayerController : MonoBehaviour
         }
 
         // Flip the sprite depending on the direction
-        if (horizontal < 0 && !isFacingRight)
+        if (horizontal < 0 && !isFacingRight && !wallSliding)
         {
             Flip();
-        } else if (horizontal > 0 && isFacingRight)
+        } else if (horizontal > 0 && isFacingRight && !wallSliding)
         {
             Flip();
+        }
+
+        if (isFacingRight && wallSliding && !hasWallFlipped)
+        {
+            Flip();
+
+            hasWallFlipped = true;
+        }
+        else if (!isFacingRight && wallSliding && !hasWallFlipped)
+        {
+            Flip();
+
+            hasWallFlipped = true;
+        }
+
+        if (!wallSliding)
+        {
+            hasWallFlipped = false;
         }
 
         // Animation functions that changes moving and jumping parameters
         animator.SetBool("Grounded", grounded);
         animator.SetBool("IsDashing", isDashing);
         animator.SetFloat("VelocityX", Mathf.Abs(horizontal));
-        animator.SetFloat("VelocityY", Mathf.Sign(velocity.y));
+        animator.SetFloat("VelocityY", velocity.y);
+        animator.SetBool("WallSliding", wallSliding);
 
         //Adding Velocity
         Vector2 changeVelocity = rb.velocity;
@@ -513,6 +536,16 @@ public class PlayerController : MonoBehaviour
     void JumpEnded()
     {
         jump = false;
+    }
+
+    #endregion
+
+    #region Gizmos
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(frontCheck.position, rangeSize);
+        Gizmos.DrawWireCube(frontCheck2.position, rangeSize);
     }
 
     #endregion
