@@ -343,7 +343,7 @@ public class PlayerController : MonoBehaviour
 
         if (wallJumpingX)
         {
-            velocity = new Vector2(xWallForce * ((isFacingRight || isFacingRight && !jumpFacingRight) ? 1 : -1) * -1, velocity.y);
+            velocity = new Vector2((horizontal != 0) ? -horizontal * xWallForce : xWallForce * (isFacingRight ? 1 : -1), velocity.y);
         }
 
         if (wallJumpingY)
@@ -362,26 +362,23 @@ public class PlayerController : MonoBehaviour
         if (horizontal < 0 && !isFacingRight && !wallSliding)
         {
             Flip();
-        } else if (horizontal > 0 && isFacingRight && !wallSliding)
+        }
+        else if (horizontal > 0 && isFacingRight && !wallSliding)
         {
             Flip();
         }
 
         if (isFacingRight && wallSliding && !hasWallFlipped)
         {
-            Flip();
-
-            hasWallFlipped = true;
-        }
-        else if (!isFacingRight && wallSliding && !hasWallFlipped)
-        {
-            Flip();
+            FlipGraphics();
 
             hasWallFlipped = true;
         }
 
-        if (!wallSliding)
+        if (horizontal != 0 && !wallSliding && hasWallFlipped)
         {
+            FlipGraphics();
+
             hasWallFlipped = false;
         }
 
@@ -495,6 +492,22 @@ public class PlayerController : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
 
+    }
+
+    void FlipVariable(bool facingRight)
+    {
+        Vector3 scale = transform.localScale;
+        scale.x *= (isFacingRight == facingRight) ? 1 : -1;
+        transform.localScale = scale;
+
+        isFacingRight = facingRight;
+    }
+
+    void FlipGraphics()
+    {
+        Vector3 scale = graphics.transform.localScale;
+        scale.x *= -1;
+        graphics.transform.localScale = scale;
     }
 
     void SetWallJumpingXToFalse()
