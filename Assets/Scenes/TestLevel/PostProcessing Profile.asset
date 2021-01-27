@@ -94,6 +94,7 @@ MonoBehaviour:
   - {fileID: -6423084658418352607}
   - {fileID: 5825567063064739798}
   - {fileID: 4981747833748773798}
+  - {fileID: 8939770062257405338}
 --- !u!114 &2559696295432466491
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -114,7 +115,7 @@ MonoBehaviour:
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.5
     min: 0
   scatter:
     m_OverrideState: 1
@@ -170,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
   m_Name: LiftGammaGain
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   lift:
     m_OverrideState: 1
@@ -200,3 +201,33 @@ MonoBehaviour:
     m_Value: 0
     min: 0
     max: 1
+--- !u!114 &8939770062257405338
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 0
+  m_AdvancedMode: 0
+  mode:
+    m_OverrideState: 1
+    m_Value: 0
+  quality:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.2
+    min: 0
+    max: 1
+  clamp:
+    m_OverrideState: 1
+    m_Value: 0.05
+    min: 0
+    max: 0.2

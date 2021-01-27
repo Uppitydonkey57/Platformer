@@ -343,7 +343,7 @@ public class PlayerController : MonoBehaviour
 
         if (wallJumpingX)
         {
-            velocity = new Vector2((horizontal != 0) ? -horizontal * xWallForce : xWallForce * (isFacingRight ? 1 : -1), velocity.y);
+            velocity = new Vector2(xWallForce * ((isFacingRight || isFacingRight && !jumpFacingRight) ? 1 : -1), velocity.y);
         }
 
         if (wallJumpingY)
@@ -368,7 +368,7 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if (isFacingRight && wallSliding && !hasWallFlipped)
+        if (wallSliding && !hasWallFlipped)
         {
             FlipGraphics();
 

@@ -1,0 +1,946 @@
+fileFormatVersion: 2
+guid: 179a7e21535173d4d86fe1558ea3d157
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -251899722076194377
+    second: CastleWallTilemap_0
+  - first:
+      213: 2610191813584721075
+    second: CastleWallTilemap_1
+  - first:
+      213: 7826712013460766307
+    second: CastleWallTilemap_2
+  - first:
+      213: -5414544618859371572
+    second: CastleWallTilemap_3
+  - first:
+      213: -7200430512858969370
+    second: CastleWallTilemap_4
+  - first:
+      213: 5956794567576062091
+    second: CastleWallTilemap_5
+  - first:
+      213: -2293951485979451358
+    second: CastleWallTilemap_6
+  - first:
+      213: -1792700049087137262
+    second: CastleWallTilemap_7
+  - first:
+      213: -8216401879086817412
+    second: CastleWallTilemap_8
+  - first:
+      213: 2801860819868000897
+    second: CastleWallTilemap_9
+  - first:
+      213: 3013741111558565157
+    second: CastleWallTilemap_10
+  - first:
+      213: -5382715316019583256
+    second: CastleWallTilemap_11
+  - first:
+      213: 218314980311928091
+    second: CastleWallTilemap_12
+  - first:
+      213: 3145168017574234592
+    second: CastleWallTilemap_13
+  - first:
+      213: -4215241879168652641
+    second: CastleWallTilemap_14
+  - first:
+      213: 7354789506545540769
+    second: CastleWallTilemap_15
+  - first:
+      213: 2812051181244005511
+    second: CastleWallTilemap_16
+  - first:
+      213: -678105733210628949
+    second: CastleWallTilemap_17
+  - first:
+      213: 3024465099884150339
+    second: CastleWallTilemap_18
+  - first:
+      213: -2117147327914842781
+    second: CastleWallTilemap_19
+  - first:
+      213: 3878561480270072985
+    second: CastleWallTilemap_20
+  - first:
+      213: -6632803281039939986
+    second: CastleWallTilemap_21
+  - first:
+      213: 2033939307337564755
+    second: CastleWallTilemap_22
+  - first:
+      213: 560027920024859321
+    second: CastleWallTilemap_23
+  - first:
+      213: 8770828417129216089
+    second: CastleWallTilemap_24
+  - first:
+      213: -3157719043313336056
+    second: CastleWallTilemap_25
+  - first:
+      213: -8734405899829913910
+    second: CastleWallTilemap_26
+  - first:
+      213: -4942184205345872728
+    second: CastleWallTilemap_27
+  - first:
+      213: 7218216931395762224
+    second: CastleWallTilemap_28
+  - first:
+      213: 4573258083695594532
+    second: CastleWallTilemap_29
+  - first:
+      213: 6096273158989209904
+    second: CastleWallTilemap_30
+  - first:
+      213: -694695760522118070
+    second: CastleWallTilemap_31
+  - first:
+      213: -5671513246158099356
+    second: CastleWallTilemap_32
+  - first:
+      213: -1009754478746997175
+    second: CastleWallTilemap_33
+  - first:
+      213: -8163885791564396737
+    second: CastleWallTilemap_34
+  - first:
+      213: -3930567312043626876
+    second: CastleWallTilemap_35
+  - first:
+      213: 2004705662571724168
+    second: CastleWallTilemap_36
+  - first:
+      213: -8323116222545163351
+    second: CastleWallTilemap_37
+  - first:
+      213: -3670256073768972328
+    second: CastleWallTilemap_38
+  - first:
+      213: -59764772538030497
+    second: CastleWallTilemap_39
+  - first:
+      213: 4428933515149463475
+    second: CastleWallTilemap_40
+  - first:
+      213: 7646026273785982734
+    second: CastleWallTilemap_41
+  - first:
+      213: 4921351232613666989
+    second: CastleWallTilemap_42
+  - first:
+      213: -5535978379678440654
+    second: CastleWallTilemap_43
+  - first:
+      213: -5652000928024632287
+    second: CastleWallTilemap_44
+  - first:
+      213: 5247293064652130211
+    second: CastleWallTilemap_45
+  - first:
+      213: -6753809779815100053
+    second: CastleWallTilemap_46
+  - first:
+      213: 8500447767585897000
+    second: CastleWallTilemap_47
+  - first:
+      213: -4465833670824152088
+    second: CastleWallTilemap_48
+  - first:
+      213: -7428354483469934583
+    second: CastleWallTilemap_49
+  - first:
+      213: -3924773319519070048
+    second: CastleWallTilemap_50
+  - first:
+      213: -910692199919672648
+    second: CastleWallTilemap_51
+  - first:
+      213: 946886971888431124
+    second: CastleWallTilemap_52
+  - first:
+      213: -7181694618959513627
+    second: CastleWallTilemap_53
+  - first:
+      213: -9220533586488302719
+    second: CastleWallTilemap_54
+  - first:
+      213: 2554455454198918076
+    second: CastleWallTilemap_55
+  - first:
+      213: -2822454522522260715
+    second: CastleWallTilemap_56
+  - first:
+      213: -5867526894767625087
+    second: CastleWallTilemap_57
+  - first:
+      213: -3000599746222903787
+    second: CastleWallTilemap_58
+  - first:
+      213: -3969970086972802329
+    second: CastleWallTilemap_59
+  - first:
+      213: 2811991498733046817
+    second: CastleWallTilemap_60
+  - first:
+      213: 689149639379467049
+    second: CastleWallTilemap_61
+  - first:
+      213: -3082748789224412944
+    second: CastleWallTilemap_62
+  - first:
+      213: 7066653076281895
+    second: CastleWallTilemap_63
+  - first:
+      213: -4622874522583213369
+    second: CastleWallTilemap_64
+  - first:
+      213: 3033101195230201757
+    second: CastleWallTilemap_65
+  - first:
+      213: -1051822038441813477
+    second: CastleWallTilemap_66
+  - first:
+      213: -8111194898929840394
+    second: CastleWallTilemap_67
+  - first:
+      213: 1746780538880237203
+    second: CastleWallTilemap_68
+  - first:
+      213: 2189149629149350294
+    second: CastleWallTilemap_69
+  - first:
+      213: -1877497861447584106
+    second: CastleWallTilemap_70
+  - first:
+      213: 3440380393476548235
+    second: CastleWallTilemap_71
+  - first:
+      213: -2276912506635335360
+    second: CastleWallTilemap_72
+  - first:
+      213: 3149322631265684536
+    second: CastleWallTilemap_73
+  - first:
+      213: 8341085354602239829
+    second: CastleWallTilemap_74
+  - first:
+      213: -6740995358851386882
+    second: CastleWallTilemap_75
+  - first:
+      213: -8665099198151727927
+    second: CastleWallTilemap_76
+  - first:
+      213: -6032689664367074790
+    second: CastleWallTilemap_77
+  - first:
+      213: -4204560039812927237
+    second: CastleWallTilemap_78
+  - first:
+      213: 1561652055632574022
+    second: CastleWallTilemap_79
+  - first:
+      213: 2992778270799672377
+    second: CastleWallTilemap_80
+  - first:
+      213: 8926248685563588503
+    second: CastleWallTilemap_81
+  - first:
+      213: -4392493413300799632
+    second: CastleWallTilemap_82
+  - first:
+      213: 3407208171168921681
+    second: CastleWallTilemap_83
+  - first:
+      213: -977641196259887595
+    second: CastleWallTilemap_84
+  - first:
+      213: 8757995949166314068
+    second: CastleWallTilemap_85
+  - first:
+      213: 4205364227463225007
+    second: CastleWallTilemap_86
+  - first:
+      213: -4687367423958992073
+    second: CastleWallTilemap_87
+  - first:
+      213: -6611446334866402852
+    second: CastleWallTilemap_88
+  - first:
+      213: 8516966518941823549
+    second: CastleWallTilemap_89
+  - first:
+      213: -2879772562380224779
+    second: CastleWallTilemap_90
+  - first:
+      213: 8993262298964329734
+    second: CastleWallTilemap_91
+  - first:
+      213: 2903840663349906397
+    second: CastleWallTilemap_92
+  - first:
+      213: 310896945548046972
+    second: CastleWallTilemap_93
+  - first:
+      213: 1597836087749445555
+    second: CastleWallTilemap_94
+  - first:
+      213: -3712741270333342671
+    second: CastleWallTilemap_95
+  - first:
+      213: 6329266562740273877
+    second: CastleWallTilemap_96
+  - first:
+      213: -9018693390934665359
+    second: CastleWallTilemap_97
+  - first:
+      213: -376437898566687913
+    second: CastleWallTilemap_98
+  - first:
+      213: 7941565943725493144
+    second: CastleWallTilemap_99
+  - first:
+      213: 8879403153128709302
+    second: CastleWallTilemap_100
+  - first:
+      213: -4986046754632609780
+    second: CastleWallTilemap_101
+  - first:
+      213: -2107380706518115966
+    second: CastleWallTilemap_102
+  - first:
+      213: 8756236613142711238
+    second: CastleWallTilemap_103
+  - first:
+      213: -4723567528045818571
+    second: CastleWallTilemap_104
+  - first:
+      213: 816872468416327441
+    second: CastleWallTilemap_105
+  - first:
+      213: -5050097652685607939
+    second: CastleWallTilemap_106
+  - first:
+      213: 1946407560595197103
+    second: CastleWallTilemap_107
+  - first:
+      213: -250629724806060935
+    second: CastleWallTilemap_108
+  - first:
+      213: 507891898322464656
+    second: CastleWallTilemap_109
+  - first:
+      213: 4896162474166164701
+    second: CastleWallTilemap_110
+  - first:
+      213: 2810388840112489792
+    second: CastleWallTilemap_111
+  - first:
+      213: 3775989075700467842
+    second: CastleWallTilemap_112
+  - first:
+      213: -6465626253234676927
+    second: CastleWallTilemap_113
+  - first:
+      213: 6419267803085237719
+    second: CastleWallTilemap_114
+  - first:
+      213: 3634628624466839485
+    second: CastleWallTilemap_115
+  - first:
+      213: 1099136957866521599
+    second: CastleWallTilemap_116
+  - first:
+      213: -2568932422824924724
+    second: CastleWallTilemap_117
+  - first:
+      213: 3544419167260600076
+    second: CastleWallTilemap_118
+  - first:
+      213: -10248389115863563
+    second: CastleWallTilemap_119
+  - first:
+      213: 2848598977745059982
+    second: CastleWallTilemap_120
+  - first:
+      213: 194392563132458657
+    second: CastleWallTilemap_121
+  - first:
+      213: 1172888241448398068
+    second: CastleWallTilemap_122
+  - first:
+      213: 3934083088282599303
+    second: CastleWallTilemap_123
+  - first:
+      213: -4024225157860502266
+    second: CastleWallTilemap_124
+  - first:
+      213: 3361339278690104798
+    second: CastleWallTilemap_125
+  - first:
+      213: -4239558034269718991
+    second: CastleWallTilemap_126
+  - first:
+      213: -3878044590267745588
+    second: CastleWallTilemap_127
+  - first:
+      213: -3333641236255280118
+    second: CastleWallTilemap_128
+  - first:
+      213: -5904858776367043158
+    second: CastleWallTilemap_129
+  - first:
+      213: 4303096649843950581
+    second: CastleWallTilemap_130
+  - first:
+      213: 4810227798702642308
+    second: CastleWallTilemap_131
+  - first:
+      213: -5944143592321194483
+    second: CastleWallTilemap_132
+  - first:
+      213: -2003726755290365599
+    second: CastleWallTilemap_133
+  - first:
+      213: 5942576799180399152
+    second: CastleWallTilemap_134
+  - first:
+      213: -8397710977739742844
+    second: CastleWallTilemap_135
+  - first:
+      213: -4697239768540305400
+    second: CastleWallTilemap_136
+  - first:
+      213: 6941808334961081676
+    second: CastleWallTilemap_137
+  - first:
+      213: -6583394975878280220
+    second: CastleWallTilemap_138
+  - first:
+      213: 1826234472817480383
+    second: CastleWallTilemap_139
+  - first:
+      213: 2431089652787890730
+    second: CastleWallTilemap_140
+  - first:
+      213: 5673402982678844916
+    second: CastleWallTilemap_141
+  - first:
+      213: 5519316202328562489
+    second: CastleWallTilemap_142
+  - first:
+      213: 6904541672381985152
+    second: CastleWallTilemap_143
+  - first:
+      213: -2526888274382943034
+    second: CastleWallTilemap_144
+  - first:
+      213: -349298268614275044
+    second: CastleWallTilemap_145
+  - first:
+      213: 5852255981378928775
+    second: CastleWallTilemap_146
+  - first:
+      213: -5064599297062311289
+    second: CastleWallTilemap_147
+  - first:
+      213: -6918791082903383328
+    second: CastleWallTilemap_148
+  - first:
+      213: 921542008057980997
+    second: CastleWallTilemap_149
+  - first:
+      213: -9174265840603511669
+    second: CastleWallTilemap_150
+  - first:
+      213: -3413770527514142294
+    second: CastleWallTilemap_151
+  - first:
+      213: 7624458053017059073
+    second: CastleWallTilemap_152
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CastleWallTilemap_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b9f0a29982118cf0800000000000000
+      internalID: -251899722076194377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_1
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 400
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b4995400a3493420800000000000000
+      internalID: 2610191813584721075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 400
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e7c99cb111e9c60800000000000000
+      internalID: 7826712013460766307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_3
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 400
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3626c4b5cabd4b0800000000000000
+      internalID: -5414544618859371572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_4
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 400
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea482b199ee21c90800000000000000
+      internalID: -7200430512858969370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 400
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8809584919caa250800000000000000
+      internalID: 5956794567576062091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2202732074f3a20e0800000000000000
+      internalID: -2293951485979451358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_7
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21af551bdcc0f17e0800000000000000
+      internalID: -1792700049087137262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f9d29f50a79fd80800000000000000
+      internalID: -8216401879086817412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_9
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182215e129532e620800000000000000
+      internalID: 2801860819868000897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_10
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 200
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d607fc295f2d920800000000000000
+      internalID: 3013741111558565157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e6299d50f0cc45b0800000000000000
+      internalID: -5382715316019583256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_12
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d83a2615c970300800000000000000
+      internalID: 218314980311928091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_13
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e98e6ee5a1e5ab20800000000000000
+      internalID: 3145168017574234592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_14
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a6dcd18d37085c0800000000000000
+      internalID: -4215241879168652641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_15
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aeda6fb616711660800000000000000
+      internalID: 7354789506545540769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CastleWallTilemap_16
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c344486a9660720800000000000000
+      internalID: 2812051181244005511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -42,7 +42,7 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Back
+  - name: Background
     uniqueID: 3636742435
     locked: 0
   - name: SmokeParticles
