@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
     ScreenShake screenShake;
 
     SpriteRenderer[] sprites;
+    List<Color> spriteColors = new List<Color>();
 
     public bool shouldGetChildren;
 
@@ -80,9 +81,19 @@ public class Enemy : MonoBehaviour
         if (shouldGetChildren)
         {
             sprites = GetComponentsInChildren<SpriteRenderer>();
+
+            foreach (SpriteRenderer rend in sprites)
+            {
+                spriteColors.Add(rend.color);
+            }
         } else
         {
             sprites = GetComponents<SpriteRenderer>();
+
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                spriteColors[i] = sprites[i].color;
+            }
         }
     }
 
@@ -186,9 +197,9 @@ public class Enemy : MonoBehaviour
 
         yield return new WaitForSeconds(hitFlashTime);
 
-        foreach (SpriteRenderer sprite in sprites)
+        for (int i = 0; i < sprites.Length; i++)
         {
-            sprite.color = Color.white;
+            sprites[i].color = spriteColors[i];
         }
     }
 }
