@@ -748,6 +748,17 @@ MonoBehaviour:
   wallJumpTimeX: 0.2
   wallJumpTimeY: 0.1
   rangeSize: {x: 0.1, y: 0.1}
+  maxHp: 3
+  hitParticle: {fileID: 0}
+  knockbackForceX: 16
+  knockbackForceY: 8
+  knockbackTime: 0.2
+  shakeDurationHit: 0.15
+  shakeAmountHit: 0.17
+  screenFreezeHitDuration: 0.05
+  shakeDurationDead: 0.2
+  shakeAmountDead: 0.23
+  screenFreezeDeadDuration: 0.1
   projectile: {fileID: 0}
   graphics: {fileID: 2554872032471628664}
   isFacingRight: 0

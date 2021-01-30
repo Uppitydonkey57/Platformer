@@ -111,6 +111,27 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 rangeSize;
 
+    [Header("Damage & Health")]
+
+    public float maxHp;
+    float hp;
+
+    public GameObject hitParticle;
+
+    public float knockbackForceX;
+    public float knockbackForceY;
+    public float knockbackTime;
+    float knockback;
+    float knockbackDirection;
+
+    [Range(0f, 1f)] public float shakeDurationHit;
+    [Range(0f, 1f)] public float shakeAmountHit;
+    [Range(0f, 1f)] public float screenFreezeHitDuration;
+    [Space]
+    [Range(0f, 1f)] public float shakeDurationDead;
+    [Range(0f, 1f)] public float shakeAmountDead;
+    [Range(0f, 1f)] public float screenFreezeDeadDuration;
+
     [Header("Shooting")]
     public GameObject projectile;
 
@@ -120,7 +141,6 @@ public class PlayerController : MonoBehaviour
     [Header("Other")]
 
     public GameObject graphics;
-
 
     // Flipping
     [HideInInspector] public bool isFacingRight;
@@ -168,6 +188,8 @@ public class PlayerController : MonoBehaviour
         jumps = extraJumps;
 
         weapon = GetComponent<Weapon>();
+
+        hp = maxHp;
 
         //controls.Player.Horizontal
         controls.Player.Fire.performed += Shoot;
@@ -271,6 +293,8 @@ public class PlayerController : MonoBehaviour
             groundRemember = groundRememberTime;
         }
         groundRemember -= Time.deltaTime;
+
+        knockback -= Time.deltaTime;
 
         // Initial Jump
         if (jumpBuffer > 0 && groundRemember > 0)
@@ -422,6 +446,11 @@ public class PlayerController : MonoBehaviour
 
             rb.velocity = velocity + new Vector2(move.x * maxSpeed, 0);
         }
+        
+        if (knockback > 0)
+        {
+            rb.velocity = new Vector2(knockbackForceX * knockbackDirection, knockbackForceY);
+        }
     }
     #endregion
 
@@ -444,6 +473,34 @@ public class PlayerController : MonoBehaviour
 
         weapon.firePoint.transform.rotation = Quaternion.Euler(0, 0, initialRotation);
     }
+
+    public void ChangeHealth(float amount, float direction)
+    {
+        hp += amount;
+
+        if (hp > 0)
+        {
+            if (hitParticle != null) Instantiate(hitParticle, transform.position, Quaternion.identity);
+            knockback = knockbackTime;
+            knockbackDirection = Mathf.Sign(direction);
+            screenShake.Shake(shakeDurationHit, shakeAmountHit);
+            screenFreeze.Freeze(screenFreezeHitDuration);
+
+        } else
+        {
+            screenShake.Shake(shakeDurationDead, shakeAmountDead);
+            screenFreeze.Freeze(screenFreezeDeadDuration);
+            Destroy(gameObject);
+            animator.SetTrigger("Dead");
+        }
+    }
+
+    public void Kill()
+    {
+        ChangeHealth(-100, 0);
+    }
+
+
 
     void Dash()
     {
@@ -541,7 +598,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("DamageZone"))
         {
-            Destroy(gameObject);
+            Kill();
             FindObjectOfType<CinemachineBrain>().enabled = false;
         }
     }
