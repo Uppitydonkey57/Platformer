@@ -32,4 +32,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InProgressScenes/9.unity
     guid: 721afe29890363443bdd7e571cae8f95
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/10.unity
+    guid: bda72ce0a524a1e40999a5f35dff306d
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/11.unity
+    guid: 1c5a90d614f889d49af426def52c2f5e
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/12.unity
+    guid: 511965afd8be78741b81524a9f8a69ee
   m_configObjects: {}
