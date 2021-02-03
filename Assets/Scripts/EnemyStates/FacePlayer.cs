@@ -35,18 +35,21 @@ public class FacePlayer : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Vector2 lookDirection = (Vector2)player.transform.position - rb.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-
-        rb.rotation = angle;
-
-        if (player.transform.position.x < rb.position.x && !isFlipped)
+        if (player != null)
         {
-            Flip();
-        }
-        else if (player.transform.position.x > rb.position.x && isFlipped)
-        {
-            Flip();
+            Vector2 lookDirection = (Vector2)player.transform.position - rb.position;
+            float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+
+            rb.rotation = angle;
+
+            if (player.transform.position.x < rb.position.x && !isFlipped)
+            {
+                Flip();
+            }
+            else if (player.transform.position.x > rb.position.x && isFlipped)
+            {
+                Flip();
+            }
         }
     }
 

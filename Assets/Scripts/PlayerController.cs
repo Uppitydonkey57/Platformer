@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -142,6 +143,10 @@ public class PlayerController : MonoBehaviour
 
     public GameObject graphics;
 
+    public float deathWaitTime;
+
+    GameMaster gm;
+
     // Flipping
     [HideInInspector] public bool isFacingRight;
 
@@ -190,6 +195,8 @@ public class PlayerController : MonoBehaviour
         weapon = GetComponent<Weapon>();
 
         hp = maxHp;
+
+        gm = FindObjectOfType<GameMaster>();
 
         //controls.Player.Horizontal
         controls.Player.Fire.performed += Shoot;
@@ -480,7 +487,11 @@ public class PlayerController : MonoBehaviour
 
         if (hp > 0)
         {
-            if (hitParticle != null) Instantiate(hitParticle, transform.position, Quaternion.identity);
+            if (hitParticle != null)
+            {
+                GameObject hitParticleInstance = Instantiate(hitParticle, transform.position, Quaternion.identity);
+                Destroy(hitParticleInstance, 10);
+            }
             knockback = knockbackTime;
             knockbackDirection = Mathf.Sign(direction);
             screenShake.Shake(shakeDurationHit, shakeAmountHit);
@@ -488,9 +499,10 @@ public class PlayerController : MonoBehaviour
 
         } else
         {
+            Invoke(nameof(Death), deathWaitTime);
             screenShake.Shake(shakeDurationDead, shakeAmountDead);
             screenFreeze.Freeze(screenFreezeDeadDuration);
-            Destroy(gameObject);
+            //Destroy(gameObject);
             animator.SetTrigger("Dead");
         }
     }
@@ -576,6 +588,12 @@ public class PlayerController : MonoBehaviour
     void SetWallJumpingYToFalse()
     {
         wallJumpingY = false;
+    }
+
+    void Death()
+    {
+        Debug.Log("Death Triggered");
+        StartCoroutine(gm.LoadLevel(SceneManager.GetActiveScene().name));
     }
 
     #endregion

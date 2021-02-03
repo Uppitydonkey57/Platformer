@@ -20,6 +20,10 @@ public class GameMaster : MonoBehaviour
 
     CinemachineBrain brain;
 
+    public float sceneTransitionTime;
+
+    public Animator sceneTransitionAnimator;
+
     private void Start()
     {
         controls = new Controls();
@@ -46,14 +50,15 @@ public class GameMaster : MonoBehaviour
         controls.Disable();
     }
 
-    public IEnumerator PlayerDeathReset()
+    public IEnumerator LoadLevel(string sceneName)
     {
-        yield return null;
-    }
+        sceneTransitionAnimator.SetTrigger("Start");
 
-    public IEnumerator LoadLevel()
-    {
-        yield return null;
+        yield return new WaitForSeconds(sceneTransitionTime);
+
+        Debug.Log("Loading Scene");
+
+        SceneManager.LoadScene(sceneName);
     }
 
     // Update is called once per frame
