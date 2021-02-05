@@ -16,7 +16,7 @@ public class PlayerInRange : StateMachineBehaviour
 
     Transform player;
 
-    Enemy enemy;
+    Actor enemy;
 
     public bool useChance;
 
@@ -27,11 +27,11 @@ public class PlayerInRange : StateMachineBehaviour
     {
         player = FindObjectOfType<PlayerController>().transform;
 
-        enemy = animator.GetComponent<Enemy>();
+        enemy = animator.GetComponent<Actor>();
 
         if (enemy == null)
         {
-            enemy = animator.GetComponentInParent<Enemy>();
+            enemy = animator.GetComponentInParent<Actor>();
         }
     }
 

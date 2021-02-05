@@ -1,0 +1,348 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+using UnityEngine.UI;
+
+public class Actor : MonoBehaviour
+{
+    public float maxHealth;
+    public float health;
+
+    public string[] hitTags;
+
+    ScreenShake screenShake;
+
+    public bool shouldUseActivationRange;
+
+    public MonoBehaviour[] behaviours;
+
+    public Animator animator;
+
+    [HideInInspector] public bool isActive;
+
+    public float activationRange;
+
+    public LayerMask activationLayer;
+
+    public float shakeDelay;
+
+    [Range(0f, 0.5f)] public float shakeDurationHit;
+    [Range(0f, 0.5f)] public float shakeAmountHit;
+    [Space]
+    [Range(0f, 0.5f)] public float shakeDurationDead;
+    [Range(0f, 0.5f)] public float shakeAmountDead;
+
+    public float knockbackSpeed;
+
+    public float healRate;
+
+    //public bool shouldStun;
+
+    Rigidbody2D rb;
+
+    public Slider healthBar;
+
+    public GameObject deathParticle;
+
+    public AudioSource audioSource;
+    public AudioClip[] hitSounds;
+
+    public bool DestroyOnDeath = true;
+    public bool DestroyCanvas;
+
+    public bool useHitFlash = true;
+    public Color hitFlashColor = Color.black;
+    [Range(0f, 0.3f)] public float hitFlashDuration = 0.05f;
+
+    List<SpriteRenderer> sprites = new List<SpriteRenderer>();
+    List<Color> spriteColors = new List<Color>();
+
+    public bool isInvinsible;
+
+    public bool useCorpseLayer;
+
+    public bool debugHealth;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        health = maxHealth;
+
+        screenShake = FindObjectOfType<ScreenShake>();
+
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
+
+        if (animator == null) animator = GetComponent<Animator>();
+        if (animator == null) animator = GetComponentInChildren<Animator>();
+
+
+        rb = GetComponent<Rigidbody2D>();
+
+        if (shouldUseActivationRange)
+        {
+            if (behaviours != null)
+            {
+                foreach (MonoBehaviour behaviour in behaviours)
+                {
+                    if (behaviour != null)
+                        behaviour.enabled = false;
+                }
+            }
+
+            animator.enabled = false;
+        }
+
+        if (healthBar != null)
+        {
+            healthBar.maxValue = maxHealth;
+
+            healthBar.value = health;
+        }
+
+        if (GetComponents<SpriteRenderer>() != null)
+        {
+            foreach (SpriteRenderer rend in GetComponents<SpriteRenderer>())
+            {
+                sprites.Add(rend);
+            }
+        }
+
+        if (GetComponentsInChildren<SpriteRenderer>() != null)
+        {
+            foreach (SpriteRenderer rend in GetComponentsInChildren<SpriteRenderer>())
+            {
+                sprites.Add(rend);
+            }
+        }
+
+        if (sprites != null)
+        {
+            foreach (SpriteRenderer rend in sprites)
+            {
+                spriteColors.Add(rend.color);
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Physics2D.OverlapCircle(transform.position, activationRange, activationLayer) != null)
+        {
+            Activate();
+        }
+
+        if (health + healRate < maxHealth)
+        {
+            ChangeHealth(healRate * Time.deltaTime);
+        }
+
+        if (debugHealth)
+        {
+            Debug.Log(gameObject.name + ": " + health);
+        }
+    }
+
+    public void ChangeHealth(float amount)
+    {
+        if (!isInvinsible)
+        {
+            if (health + amount < health)
+            {
+                if (useHitFlash)
+                {
+                    StartCoroutine(HitFlash());
+                }
+
+                if (animator != null)
+                    animator.SetTrigger("Hit");
+
+                if (hitSounds != null)
+                {
+                    audioSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length - 1)]);
+                }
+
+                Invoke(nameof(ShakeScreen), 0f);
+            }
+
+            health += amount;
+
+            if (!isActive) Activate();
+
+            if (health <= 0)
+            {
+                if (DestroyOnDeath)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    animator.SetTrigger("Dead");
+                    foreach (SpriteRenderer rend in GetComponentsInChildren<SpriteRenderer>())
+                    {
+                        rend.sortingLayerName = "Corpses";
+                    }
+                }
+
+                if (DestroyCanvas)
+                {
+                    Destroy(GetComponentInChildren<Canvas>().gameObject);
+                }
+            }
+
+            if (healthBar != null)
+                healthBar.value = health;
+        }
+    }
+
+    public void ChangeHealth(float amount, Vector2 knockbackDirection)
+    {
+        if (!isInvinsible)
+        {
+            health += amount;
+
+            if (!isActive) Activate();
+
+            rb.AddForce(knockbackDirection * knockbackSpeed * Time.deltaTime, ForceMode2D.Impulse);
+
+            if (health + amount < health)
+            {
+                if (useHitFlash)
+                {
+                    StartCoroutine(HitFlash());
+                }
+
+                if (hitSounds != null && hitSounds.Length > 0)
+                {
+                    audioSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length - 1)]);
+                }
+
+                if (animator != null)
+                    animator.SetTrigger("Hit");
+
+                Invoke(nameof(ShakeScreen), 0f);
+            }
+
+            if (healthBar != null)
+                healthBar.value = health;
+
+            if (health <= 0)
+            {
+                if (DestroyOnDeath)
+                {
+                    if (deathParticle != null)
+                    {
+                        GameObject particle = Instantiate(deathParticle, transform.position, Quaternion.identity);
+                        Destroy(particle, 10);
+                    }
+
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    animator.SetTrigger("Dead");
+
+                    if (useCorpseLayer)
+                    {
+                        foreach (SpriteRenderer rend in GetComponentsInChildren<SpriteRenderer>())
+                        {
+                            rend.sortingLayerName = "Corpses";
+                        }
+                    }
+                }
+
+                if (DestroyCanvas)
+                {
+                    Destroy(GetComponentInChildren<Canvas>().gameObject);
+                    GetComponent<BoxCollider2D>().enabled = false;
+                    GetComponent<Actor>().enabled = false;
+                    if (GetComponent<PlayerController>() != null) GetComponent<PlayerController>().enabled = false;
+                }
+            }
+        }
+    }
+
+    void Activate()
+    {
+        if (shouldUseActivationRange)
+        {
+            if (behaviours != null)
+            {
+                foreach (MonoBehaviour behaviour in behaviours)
+                {
+                    if (behaviour != null)
+                        behaviour.enabled = true;
+                }
+            }
+
+            animator.enabled = true;
+
+            isActive = true;
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (Array.Exists(hitTags, element => other.gameObject.CompareTag(element)))
+        {
+            Projectile projectile = other.gameObject.GetComponent<Projectile>();
+
+            if (projectile != null)
+            {
+                ChangeHealth(-projectile.damage, projectile.transform.rotation.eulerAngles * -1);
+            }
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (Array.Exists(hitTags, element => other.gameObject.CompareTag(element)))
+        {
+            Projectile projectile = other.gameObject.GetComponent<Projectile>();
+
+            if (projectile != null)
+            {
+                ChangeHealth(-projectile.damage, projectile.transform.rotation.eulerAngles * -1);
+            }
+        }
+    }
+
+    void ShakeScreen()
+    {
+        if (health <= 0)
+        {
+            screenShake.Shake(shakeDurationDead, shakeAmountDead);
+        }
+        else
+        {
+            screenShake.Shake(shakeDurationHit, shakeAmountHit);
+        }
+    }
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
+
+        if (shouldUseActivationRange)
+        {
+            Gizmos.DrawWireSphere(transform.position, activationRange);
+        }
+    }
+
+    IEnumerator HitFlash()
+    {
+        foreach (SpriteRenderer sprite in sprites)
+        {
+            sprite.color = hitFlashColor;
+        }
+
+        yield return new WaitForSeconds(hitFlashDuration);
+
+        for (int i = 0; i < sprites.Count; i++)
+        {
+            sprites[i].color = spriteColors[i];
+        }
+    }
+}

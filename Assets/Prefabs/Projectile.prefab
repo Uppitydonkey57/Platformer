@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8525383932679350537}
   - component: {fileID: 9060082310061739855}
   - component: {fileID: 5812924119594563755}
-  - component: {fileID: 8985218984741044926}
   m_Layer: 10
   m_Name: Projectile
   m_TagString: PlayerProjectile
@@ -98,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3efd4cc48602447aa37d25720dc026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
 --- !u!50 &9060082310061739855
 Rigidbody2D:
   serializedVersion: 4
@@ -145,15 +145,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.7631542}
   m_EdgeRadius: 0
---- !u!114 &8985218984741044926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9031168756110560950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b3efd4cc48602447aa37d25720dc026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -72,6 +72,6 @@ public class GameMaster : MonoBehaviour
 
     private void Restart(InputAction.CallbackContext callback)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Teleport : StateMachineBehaviour
 {
-    Enemy enemy;
+    Actor enemy;
 
     Rigidbody2D enemyRb;
 
@@ -20,7 +20,7 @@ public class Teleport : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        enemy = animator.GetComponent<Enemy>();
+        enemy = animator.GetComponent<Actor>();
 
         enemyRb = enemy.GetComponent<Rigidbody2D>();
 

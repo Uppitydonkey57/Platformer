@@ -17,6 +17,11 @@ public class Shooting : StateMachineBehaviour
         {
             weapon = animator.GetComponentInChildren<Weapon>();
         }
+        
+        if (weapon == null)
+        {
+            weapon = animator.GetComponentInParent<Weapon>();
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

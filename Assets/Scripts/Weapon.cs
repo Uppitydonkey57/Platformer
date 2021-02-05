@@ -1,65 +1,88 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Weapon : MonoBehaviour
 {
     public bool isMelee;
 
-    public GameObject projectilePrefab;
+    public Vector2 attackRange;
+    public Vector2 attackOffset;
 
-    public float projectileSpeed;
+    public bool isRaycast;
 
-    public GameObject firePoint;
-
-    public float fireScreenShake;
-    public float screenShakeDuration;
-
-    public float fireScreenFreeze;
+    public string name;
+    public string hitTag;
+    public float damage;
 
     public float shootWait;
     bool canShoot = true;
 
-    public bool useShootPause;
-    public float ShootTime;
-    public float shootPauseTime;
-    bool shootPause = false;
+    public Transform firePoint;
 
-    ScreenShake screenShake;
-    ScreenFreeze screenFreeze;
+    public GameObject projectilePrefab;
+    public float projectileSpeed;
 
-    public void Awake()
+    public AudioSource audioSource;
+    public AudioClip[] attackSounds;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        screenShake = FindObjectOfType<ScreenShake>();
-        screenFreeze = FindObjectOfType<ScreenFreeze>();
-
-        if (useShootPause)
-        {
-            StartCoroutine(ShootPause());
-        }
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
     }
 
     public void Attack()
     {
-        if (canShoot && !shootPause)
+        if (canShoot)
         {
-            screenShake.Shake(screenShakeDuration, fireScreenShake);
-            screenFreeze.Freeze(fireScreenFreeze);
-
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.transform.position, firePoint.transform.rotation);
-
-            Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
-
-            if (projectileRb != null)
+            if (attackSounds != null && attackSounds.Length > 0)
             {
-                projectileRb.AddForce(projectile.transform.up * projectileSpeed, ForceMode2D.Impulse);
+                audioSource.PlayOneShot(attackSounds[UnityEngine.Random.Range(0, attackSounds.Length - 1)]);
+            }
+
+            if (isMelee)
+            {
+                foreach (Collider2D collider in Physics2D.OverlapBoxAll((Vector2)transform.position + attackOffset, attackRange, 0))
+                {
+                    Actor inRangeActor = collider.GetComponent<Actor>();
+
+                    if (collider.GetComponent<Actor>() != null)
+                    {
+                        if (Array.Exists(inRangeActor.hitTags, element => element == hitTag))
+                        {
+                            inRangeActor.ChangeHealth(-damage, transform.right);
+                        }
+                    }
+                }
+            }
+            else if (isRaycast)
+            {
+
             }
             else
             {
-                Debug.LogWarning(projectile.name + " has no rigidbody, please add one.");
+                GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+
+                Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
+
+                projectileRb.AddForce(projectile.transform.up * projectileSpeed, ForceMode2D.Impulse);
             }
 
             StartCoroutine(ShootWait());
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (isMelee)
+        {
+            Gizmos.color = Color.red;
+
+            Gizmos.DrawWireCube(transform.position + (Vector3)attackOffset, attackRange);
         }
     }
 
@@ -70,18 +93,5 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(shootWait);
 
         canShoot = true;
-    }
-
-    IEnumerator ShootPause()
-    {
-        shootPause = true;
-
-        yield return new WaitForSeconds(shootPauseTime);
-
-        shootPause = false;
-
-        yield return new WaitForSeconds(ShootTime);
-
-        StartCoroutine(ShootPause());
     }
 }

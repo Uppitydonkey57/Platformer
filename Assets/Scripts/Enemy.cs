@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int maxHp;
+    public float maxHp;
     
-    int hp;
+    float hp;
 
     public MonoBehaviour[] behaviours;
 
@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void ChangeHealth(int amount)
+    public void ChangeHealth(float amount)
     {
         if (hp > hp + amount)
         {
