@@ -17,8 +17,6 @@ public class ActiveSwitch : StateMachineBehaviour
         {
             enemy = animator.GetComponentInParent<Actor>();
         }
-
-        Debug.Log(enemy);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

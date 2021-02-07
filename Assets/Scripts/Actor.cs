@@ -48,9 +48,11 @@ public class Actor : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] hitSounds;
 
+    public float hitWait;
+
     public bool DestroyOnDeath = true;
     public bool DestroyCanvas;
-
+    public bool useDeathAnimBoolean = true;
     public bool useHitFlash = true;
     public Color hitFlashColor = Color.black;
     [Range(0f, 0.3f)] public float hitFlashDuration = 0.05f;
@@ -145,59 +147,7 @@ public class Actor : MonoBehaviour
         }
     }
 
-    public void ChangeHealth(float amount)
-    {
-        if (!isInvinsible)
-        {
-            if (health + amount < health)
-            {
-                if (useHitFlash)
-                {
-                    StartCoroutine(HitFlash());
-                }
-
-                if (animator != null)
-                    animator.SetTrigger("Hit");
-
-                if (hitSounds != null)
-                {
-                    audioSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length - 1)]);
-                }
-
-                Invoke(nameof(ShakeScreen), 0f);
-            }
-
-            health += amount;
-
-            if (!isActive) Activate();
-
-            if (health <= 0)
-            {
-                if (DestroyOnDeath)
-                {
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    animator.SetTrigger("Dead");
-                    foreach (SpriteRenderer rend in GetComponentsInChildren<SpriteRenderer>())
-                    {
-                        rend.sortingLayerName = "Corpses";
-                    }
-                }
-
-                if (DestroyCanvas)
-                {
-                    Destroy(GetComponentInChildren<Canvas>().gameObject);
-                }
-            }
-
-            if (healthBar != null)
-                healthBar.value = health;
-        }
-    }
-
-    public void ChangeHealth(float amount, Vector2 knockbackDirection)
+    public virtual void ChangeHealth(float amount)
     {
         if (!isInvinsible)
         {
@@ -205,11 +155,11 @@ public class Actor : MonoBehaviour
 
             if (!isActive) Activate();
 
-            rb.AddForce(knockbackDirection * knockbackSpeed * Time.deltaTime, ForceMode2D.Impulse);
-
             if (health + amount < health)
             {
-                if (useHitFlash)
+                StartCoroutine(HitWait());
+
+                if (useHitFlash && health > 0)
                 {
                     StartCoroutine(HitFlash());
                 }
@@ -242,7 +192,13 @@ public class Actor : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger("Dead");
+                    if (!useDeathAnimBoolean)
+                    {
+                        animator.SetTrigger("Dead");
+                    } else
+                    {
+                        animator.SetBool("Dead", true);
+                    }
 
                     if (useCorpseLayer)
                     {
@@ -258,10 +214,17 @@ public class Actor : MonoBehaviour
                     Destroy(GetComponentInChildren<Canvas>().gameObject);
                     GetComponent<BoxCollider2D>().enabled = false;
                     GetComponent<Actor>().enabled = false;
-                    if (GetComponent<PlayerController>() != null) GetComponent<PlayerController>().enabled = false;
                 }
+
+                GetComponent<Actor>().enabled = false;
             }
         }
+    }
+
+    public virtual void ChangeHealthKnockback(float amount, Vector2 knockbackDirection)
+    {
+        ChangeHealth(amount);
+        rb.AddForce(knockbackDirection * knockbackSpeed * Time.deltaTime, ForceMode2D.Impulse);
     }
 
     void Activate()
@@ -291,7 +254,7 @@ public class Actor : MonoBehaviour
 
             if (projectile != null)
             {
-                ChangeHealth(-projectile.damage, projectile.transform.rotation.eulerAngles * -1);
+                ChangeHealthKnockback(-projectile.damage, projectile.transform.rotation.eulerAngles * -1);
             }
         }
     }
@@ -304,7 +267,7 @@ public class Actor : MonoBehaviour
 
             if (projectile != null)
             {
-                ChangeHealth(-projectile.damage, projectile.transform.rotation.eulerAngles * -1);
+                ChangeHealthKnockback(-projectile.damage, projectile.transform.rotation.eulerAngles * -1);
             }
         }
     }
@@ -343,6 +306,18 @@ public class Actor : MonoBehaviour
         for (int i = 0; i < sprites.Count; i++)
         {
             sprites[i].color = spriteColors[i];
+        }
+    }
+
+    IEnumerator HitWait()
+    {
+        if (hitWait > 0)
+        {
+            isInvinsible = true;
+
+            yield return new WaitForSeconds(hitWait);
+
+            isInvinsible = false;
         }
     }
 }

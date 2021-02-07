@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
 
     public bool isRaycast;
 
-    public string name;
+    public string weaponName;
     public string hitTag;
     public float damage;
 
@@ -54,7 +54,7 @@ public class Weapon : MonoBehaviour
                     {
                         if (Array.Exists(inRangeActor.hitTags, element => element == hitTag))
                         {
-                            inRangeActor.ChangeHealth(-damage, transform.right);
+                            inRangeActor.ChangeHealthKnockback(-damage, transform.right);
                         }
                     }
                 }

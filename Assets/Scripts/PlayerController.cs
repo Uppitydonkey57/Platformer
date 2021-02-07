@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class PlayerController : MonoBehaviour
     // Components
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+
+    internal void ChangeHealth(float v1, float v2)
+    {
+        throw new NotImplementedException();
+    }
+
     private Rigidbody2D rb;
 
     ScreenShake screenShake;
@@ -114,8 +121,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Damage & Health")]
 
-    public float maxHp;
-    float hp;
+    PlayerActor playerActor;
 
     public GameObject hitParticle;
 
@@ -124,14 +130,6 @@ public class PlayerController : MonoBehaviour
     public float knockbackTime;
     float knockback;
     float knockbackDirection;
-
-    [Range(0f, 1f)] public float shakeDurationHit;
-    [Range(0f, 1f)] public float shakeAmountHit;
-    [Range(0f, 1f)] public float screenFreezeHitDuration;
-    [Space]
-    [Range(0f, 1f)] public float shakeDurationDead;
-    [Range(0f, 1f)] public float shakeAmountDead;
-    [Range(0f, 1f)] public float screenFreezeDeadDuration;
 
     [Header("Shooting")]
     public GameObject projectile;
@@ -194,7 +192,7 @@ public class PlayerController : MonoBehaviour
 
         weapon = GetComponent<Weapon>();
 
-        hp = maxHp;
+        playerActor = GetComponent<PlayerActor>();
 
         gm = FindObjectOfType<GameMaster>();
 
@@ -389,6 +387,13 @@ public class PlayerController : MonoBehaviour
             jumps--;
         }
 
+        //Death
+        if (playerActor.health < 0)
+        {
+            StartCoroutine(gm.LoadLevel(SceneManager.GetActiveScene().name, deathWaitTime));
+            Destroy(this);
+        }
+
         // Flip the sprite depending on the direction
         if (horizontal < 0 && !isFacingRight && !wallSliding)
         {
@@ -481,37 +486,16 @@ public class PlayerController : MonoBehaviour
         weapon.firePoint.transform.rotation = Quaternion.Euler(0, 0, initialRotation);
     }
 
-    public void ChangeHealth(float amount, float direction)
-    {
-        hp += amount;
-
-        if (hp > 0)
-        {
-            if (hitParticle != null)
-            {
-                GameObject hitParticleInstance = Instantiate(hitParticle, transform.position, Quaternion.identity);
-                Destroy(hitParticleInstance, 10);
-            }
-            knockback = knockbackTime;
-            knockbackDirection = Mathf.Sign(direction);
-            screenShake.Shake(shakeDurationHit, shakeAmountHit);
-            screenFreeze.Freeze(screenFreezeHitDuration);
-
-        } else
-        {
-            Invoke(nameof(Death), deathWaitTime);
-            screenShake.Shake(shakeDurationDead, shakeAmountDead);
-            screenFreeze.Freeze(screenFreezeDeadDuration);
-            //Destroy(gameObject);
-            animator.SetTrigger("Dead");
-        }
-    }
-
     public void Kill()
     {
-        ChangeHealth(-100, 0);
+        playerActor.ChangeHealth(-100);
     }
 
+    public void KnockBack(float direction)
+    {
+        knockback = knockbackTime;
+        knockbackDirection = Mathf.Sign(direction);
+    }
 
 
     void Dash()
@@ -588,12 +572,6 @@ public class PlayerController : MonoBehaviour
     void SetWallJumpingYToFalse()
     {
         wallJumpingY = false;
-    }
-
-    void Death()
-    {
-        Debug.Log("Death Triggered");
-        StartCoroutine(gm.LoadLevel(SceneManager.GetActiveScene().name));
     }
 
     #endregion

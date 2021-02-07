@@ -61,6 +61,23 @@ public class GameMaster : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public IEnumerator LoadLevel(string sceneName, float waitTime)
+    {
+        Debug.Log("Thing2");
+
+        yield return new WaitForSeconds(waitTime);
+
+        Debug.Log("Thing");
+        
+        sceneTransitionAnimator.SetTrigger("Start");
+
+        yield return new WaitForSeconds(sceneTransitionTime);
+
+        Debug.Log("Loading Scene");
+
+        SceneManager.LoadScene(sceneName);
+    }
+
     // Update is called once per frame
     void Update()
     {

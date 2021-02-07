@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwapPlatform : MonoBehaviour
 {
-    Collider2D collider;
+    Collider2D collider2d;
 
     SpriteRenderer spriteRenderer;
 
@@ -20,7 +20,7 @@ public class SwapPlatform : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        collider = GetComponent<Collider2D>();
+        collider2d = GetComponent<Collider2D>();
 
         StartCoroutine(Swap());
     }
@@ -35,13 +35,13 @@ public class SwapPlatform : MonoBehaviour
     {
         while (true)
         {
-            collider.enabled = true;
+            collider2d.enabled = true;
 
             spriteRenderer.color = initialColor;
 
             yield return new WaitForSeconds(platformTime);
 
-            collider.enabled = false;
+            collider2d.enabled = false;
 
             spriteRenderer.color = color;
 

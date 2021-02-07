@@ -173,7 +173,7 @@ MonoBehaviour:
   attackRange: {x: 0, y: 0}
   attackOffset: {x: 0, y: 0}
   isRaycast: 0
-  name: 
+  weaponName: 
   hitTag: 
   damage: 1
   shootWait: 0
@@ -202,6 +202,7 @@ MonoBehaviour:
   shouldUseActivationRange: 0
   behaviours: []
   animator: {fileID: 0}
+  isActive: 0
   activationRange: 23
   activationLayer:
     serializedVersion: 2
@@ -218,8 +219,10 @@ MonoBehaviour:
     type: 3}
   audioSource: {fileID: 0}
   hitSounds: []
+  hitWait: 0
   DestroyOnDeath: 1
   DestroyCanvas: 0
+  useDeathAnimBoolean: 0
   useHitFlash: 1
   hitFlashColor: {r: 0, g: 0, b: 0, a: 1}
   hitFlashDuration: 0.05
