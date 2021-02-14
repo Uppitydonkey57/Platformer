@@ -755,7 +755,7 @@ MonoBehaviour:
   knockbackTime: 0
   projectile: {fileID: 0}
   graphics: {fileID: 2554872032471628664}
-  deathWaitTime: 0
+  deathWaitTime: 0.2
   isFacingRight: 0
 --- !u!58 &2554872033408382449
 CircleCollider2D:
@@ -822,7 +822,7 @@ MonoBehaviour:
   firePoint: {fileID: 1870583485}
   projectilePrefab: {fileID: 9031168756110560950, guid: 307b12bfc2ec49449b1c62a245148235,
     type: 3}
-  projectileSpeed: 30
+  projectileSpeed: 20
   audioSource: {fileID: 0}
   attackSounds: []
 --- !u!114 &3643445775811405499
@@ -860,7 +860,7 @@ MonoBehaviour:
   deathParticle: {fileID: 0}
   audioSource: {fileID: 0}
   hitSounds: []
-  hitWait: 0
+  hitWait: 0.3
   DestroyOnDeath: 0
   DestroyCanvas: 0
   useDeathAnimBoolean: 0
@@ -1261,22 +1261,22 @@ PrefabInstance:
     - target: {fileID: -3897939760117865258, guid: b60769fa39ade364cb75904511c03a1f,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.11490035
+      value: -0.116090536
       objectReference: {fileID: 0}
     - target: {fileID: -3897939760117865258, guid: b60769fa39ade364cb75904511c03a1f,
         type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.13996959
+      value: -0.12042129
       objectReference: {fileID: 0}
     - target: {fileID: -3897939760117865258, guid: b60769fa39ade364cb75904511c03a1f,
         type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 1.4293458
+      value: 1.4297445
       objectReference: {fileID: 0}
     - target: {fileID: -3897939760117865258, guid: b60769fa39ade364cb75904511c03a1f,
         type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 0.3942986
+      value: 0.40530354
       objectReference: {fileID: 0}
     - target: {fileID: -1288116119158188812, guid: b60769fa39ade364cb75904511c03a1f,
         type: 3}

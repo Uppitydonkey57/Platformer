@@ -50,6 +50,11 @@ public class GameMaster : MonoBehaviour
         controls.Disable();
     }
 
+    public void PlayerDeath(float time)
+    {
+        StartCoroutine(LoadLevelTime(SceneManager.GetActiveScene().name, time));
+    }
+
     public IEnumerator LoadLevel(string sceneName)
     {
         sceneTransitionAnimator.SetTrigger("Start");
@@ -61,7 +66,7 @@ public class GameMaster : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public IEnumerator LoadLevel(string sceneName, float waitTime)
+    public IEnumerator LoadLevelTime(string sceneName, float waitTime)
     {
         Debug.Log("Thing2");
 

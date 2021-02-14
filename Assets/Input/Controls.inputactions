@@ -38,7 +38,7 @@
                     "interactions": "Press(behavior=1)"
                 },
                 {
-                    "name": "MousePosition",
+                    "name": "RightStick",
                     "type": "Value",
                     "id": "d14a7f9e-983a-4e5a-b025-6f259950bfcc",
                     "expectedControlType": "Vector2",
@@ -255,23 +255,12 @@
                 },
                 {
                     "name": "",
-                    "id": "1b0e3a11-22c2-4622-a07f-70e83d1f30a5",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MousePosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "bd15015f-9bf5-4f42-81fb-4e93d05634da",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MousePosition",
+                    "action": "RightStick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

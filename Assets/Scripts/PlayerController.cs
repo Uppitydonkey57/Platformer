@@ -153,6 +153,8 @@ public class PlayerController : MonoBehaviour
     //Inputs
     float horizontal;
 
+    Vector2 rightStick;
+
     bool jump;
 
     bool jumpUp;
@@ -207,6 +209,8 @@ public class PlayerController : MonoBehaviour
         controls.Player.Horizontal.started += ctx => horizontal = ctx.ReadValue<float>();
         controls.Player.Horizontal.performed += ctx => horizontal = ctx.ReadValue<float>();
         controls.Player.Horizontal.canceled += ctx => horizontal = ctx.ReadValue<float>();
+
+        controls.Player.RightStick.performed += ctx => rightStick = ctx.ReadValue<Vector2>();
 
     }
 
@@ -388,9 +392,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //Death
-        if (playerActor.health < 0)
+        if (playerActor.health <= 0)
         {
-            StartCoroutine(gm.LoadLevel(SceneManager.GetActiveScene().name, deathWaitTime));
+
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            gm.PlayerDeath(deathWaitTime);
             Destroy(this);
         }
 

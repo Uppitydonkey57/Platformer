@@ -199,7 +199,8 @@ MonoBehaviour:
   health: 3
   hitTags:
   - PlayerProjectile
-  shouldUseActivationRange: 0
+  shouldUseActivationRange: 1
+  deactivateAnimator: 0
   behaviours: []
   animator: {fileID: 0}
   isActive: 0

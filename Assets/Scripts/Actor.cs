@@ -14,6 +14,7 @@ public class Actor : MonoBehaviour
     ScreenShake screenShake;
 
     public bool shouldUseActivationRange;
+    public bool deactivateAnimator;
 
     public MonoBehaviour[] behaviours;
 
@@ -93,7 +94,8 @@ public class Actor : MonoBehaviour
                 }
             }
 
-            animator.enabled = false;
+            if (deactivateAnimator)
+                animator.enabled = false;
         }
 
         if (healthBar != null)
@@ -162,6 +164,7 @@ public class Actor : MonoBehaviour
                 if (useHitFlash && health > 0)
                 {
                     StartCoroutine(HitFlash());
+                    Debug.Log("HitFlash");
                 }
 
                 if (hitSounds != null && hitSounds.Length > 0)
