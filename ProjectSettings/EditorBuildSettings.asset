@@ -6,37 +6,37 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/World1Level1(Small).unity
+    path: Assets/Scenes/FinishedScenes/World1Level1(Small).unity
     guid: 26cb6a23106cb4b4da68e20d938d3fc0
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/5.unity
+    path: Assets/Scenes/FinishedScenes/5.unity
     guid: 5cb96f255a380c943a622b5ca5af285a
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/6.unity
+    path: Assets/Scenes/FinishedScenes/6.unity
     guid: 31f2dd4d751841e44942789958172654
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/7.unity
+    path: Assets/Scenes/FinishedScenes/7.unity
     guid: fd0e2b4fe6f905240bb58e23e74e2505
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/World1Level2.unity
+    path: Assets/Scenes/FinishedScenes/World1Level2.unity
     guid: 6328fee31dc1b1c44b68a2b57223c737
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/World1Level3.unity
+    path: Assets/Scenes/FinishedScenes/World1Level3.unity
     guid: 3872738b4e3a26a4cb34ff79dcff6bab
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/World1Level4.unity
+    path: Assets/Scenes/FinishedScenes/World1Level4.unity
     guid: 60e257ba1454f8d4e88ceb6bc32396cb
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/8.unity
+    path: Assets/Scenes/FinishedScenes/8.unity
     guid: c7100b9f083ad4443bd100698abf2d8e
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/9.unity
+    path: Assets/Scenes/FinishedScenes/9.unity
     guid: 721afe29890363443bdd7e571cae8f95
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/10.unity
+    path: Assets/Scenes/FinishedScenes/10.unity
     guid: bda72ce0a524a1e40999a5f35dff306d
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/11.unity
+    path: Assets/Scenes/FinishedScenes/11.unity
     guid: 1c5a90d614f889d49af426def52c2f5e
   - enabled: 1
     path: Assets/Scenes/InProgressScenes/12.unity

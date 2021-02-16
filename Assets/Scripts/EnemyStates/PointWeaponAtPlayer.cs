@@ -42,7 +42,7 @@ public class PointWeaponAtPlayer : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Vector2 tagetPosition = (Vector2)player.transform.position - enemyRb.position;
+        Vector2 tagetPosition = player.transform.position - firepointTransform.position;
         float angle = Mathf.Atan2(tagetPosition.y, tagetPosition.x) * Mathf.Rad2Deg - 90f;
         firepointTransform.rotation = Quaternion.Euler(0f, 0f, angle);
     }

@@ -180,7 +180,7 @@ MonoBehaviour:
   firePoint: {fileID: 3608247532900733012}
   projectilePrefab: {fileID: 9216892818336456651, guid: ca9d1b7630c523146b2dbb3894576f1e,
     type: 3}
-  projectileSpeed: 4
+  projectileSpeed: 6
   audioSource: {fileID: 0}
   attackSounds: []
 --- !u!114 &4978424997312031148

@@ -44,13 +44,19 @@ public class MovingPlatform : MonoBehaviour
     {
         Sequence sequence = DOTween.Sequence();
 
-        foreach (Vector2 position in actualEndPositions)
+        for (int i = 0; i < actualEndPositions.Length; i++)
         {
-            Debug.Log(position);
-            sequence.Append(transform.DOMove(position, moveSpeed));
+            float moveTime = GetTime(i == 0 ? (Vector2)transform.position : actualEndPositions[i - 1], actualEndPositions[i]);
+
+            sequence.Append(transform.DOMove(actualEndPositions[i], moveTime));
         }
 
         sequence.SetLoops(-1, LoopType.Yoyo);
+    }
+
+    float GetTime(Vector2 position1, Vector2 position2)
+    {
+        return ((position2.x - position1.x) + (position2.y - position1.y)) / moveSpeed;
     }
 
     Vector2[] GetActualPositions()
