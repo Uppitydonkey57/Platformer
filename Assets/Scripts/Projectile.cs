@@ -15,7 +15,13 @@ public class Projectile : MonoBehaviour
 
     public GameObject destroyParticle;
 
+    //public bool destroyOffCamera;
+    public bool useDestroyTime;
+    public float destroyTime;
+
     Collider2D collider2d;
+
+    SpriteRenderer rend;
 
     private void Start()
     {
@@ -24,6 +30,19 @@ public class Projectile : MonoBehaviour
         collider2d = GetComponent<Collider2D>();
 
         StartCoroutine(StartDelay());
+
+        if (useDestroyTime)
+        {
+            Debug.Log("Destroying");
+            Destroy(gameObject, destroyTime);
+        }
+
+        rend = GetComponent<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

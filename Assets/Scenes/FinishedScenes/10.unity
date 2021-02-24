@@ -19575,7 +19575,7 @@ PrefabInstance:
     - target: {fileID: 2811587743802324623, guid: c67ef6573cf15e74f9800940608244fb,
         type: 3}
       propertyPath: stayTime
-      value: 0.8
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6087238969884136922, guid: c67ef6573cf15e74f9800940608244fb,
         type: 3}

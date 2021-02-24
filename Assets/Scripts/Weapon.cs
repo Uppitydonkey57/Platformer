@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
 {
     public bool isMelee;
 
+    public Color weaponColor = Color.red;
     public Vector2 attackRange;
     public Vector2 attackOffset;
 
@@ -80,7 +81,7 @@ public class Weapon : MonoBehaviour
     {
         if (isMelee)
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = weaponColor;
 
             Gizmos.DrawWireCube(transform.position + (Vector3)attackOffset, attackRange);
         }

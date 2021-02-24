@@ -757,6 +757,8 @@ MonoBehaviour:
   graphics: {fileID: 2554872032471628664}
   deathWaitTime: 0.2
   isFacingRight: 0
+  velocity: {x: 0, y: 0}
+  velocityQue: []
 --- !u!58 &2554872033408382449
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -842,6 +844,7 @@ MonoBehaviour:
   hitTags:
   - Enemy
   shouldUseActivationRange: 0
+  deactivateAnimator: 0
   behaviours: []
   animator: {fileID: 1050382880134654385}
   isActive: 0
@@ -860,7 +863,7 @@ MonoBehaviour:
   deathParticle: {fileID: 0}
   audioSource: {fileID: 0}
   hitSounds: []
-  hitWait: 0.3
+  hitWait: 0.6
   DestroyOnDeath: 0
   DestroyCanvas: 0
   useDeathAnimBoolean: 0

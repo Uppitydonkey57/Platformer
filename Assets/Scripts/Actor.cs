@@ -212,6 +212,11 @@ public class Actor : MonoBehaviour
                     }
                 }
 
+                if (debugHealth)
+                {
+                    Debug.Log(gameObject.name + ": " + health);
+                }
+
                 if (DestroyCanvas)
                 {
                     Destroy(GetComponentInChildren<Canvas>().gameObject);

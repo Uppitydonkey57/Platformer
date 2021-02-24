@@ -10,6 +10,9 @@ public class MoveTowardsPlayer : StateMachineBehaviour
 
     Rigidbody2D rb;
 
+    public bool freezeX;
+    public bool freezeY;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -28,7 +31,8 @@ public class MoveTowardsPlayer : StateMachineBehaviour
     {
         if (player != null)
         {
-            rb.MovePosition(Vector2.MoveTowards(rb.position, player.transform.position, moveSpeed * Time.deltaTime));
+            Vector2 movePosition = Vector2.MoveTowards(rb.position, player.transform.position, moveSpeed * Time.deltaTime);
+            rb.MovePosition(new Vector2(freezeX ? animator.transform.position.x : movePosition.x, freezeY ? animator.transform.position.y : movePosition.y));
         }
     }
 

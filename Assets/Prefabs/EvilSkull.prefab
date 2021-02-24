@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMelee: 1
+  weaponColor: {r: 1, g: 0, b: 0, a: 1}
   attackRange: {x: 0.88, y: 0.93}
   attackOffset: {x: 0, y: 0.05}
   isRaycast: 0
@@ -214,6 +215,7 @@ MonoBehaviour:
   hitTags:
   - PlayerProjectile
   shouldUseActivationRange: 1
+  deactivateAnimator: 0
   behaviours:
   - {fileID: 0}
   - {fileID: 0}
@@ -441,7 +443,7 @@ PrefabInstance:
     - target: {fileID: -2769917712193357747, guid: a7b6572b930472d4e8f1e4e3914c377c,
         type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.012755692
+      value: -0.012755573
       objectReference: {fileID: 0}
     - target: {fileID: -2769917712193357747, guid: a7b6572b930472d4e8f1e4e3914c377c,
         type: 3}
@@ -491,12 +493,12 @@ PrefabInstance:
     - target: {fileID: -599641023956857987, guid: a7b6572b930472d4e8f1e4e3914c377c,
         type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.05292988
+      value: -0.052926064
       objectReference: {fileID: 0}
     - target: {fileID: -599641023956857987, guid: a7b6572b930472d4e8f1e4e3914c377c,
         type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: -0.035235405
+      value: -0.035235524
       objectReference: {fileID: 0}
     - target: {fileID: -599641023956857987, guid: a7b6572b930472d4e8f1e4e3914c377c,
         type: 3}

@@ -148,7 +148,8 @@ public class PlayerController : MonoBehaviour
     // Flipping
     [HideInInspector] public bool isFacingRight;
 
-    Vector2 velocity;
+    [HideInInspector] public Vector2 velocity;
+    public List<Vector2> velocityQue;
 
     //Inputs
     float horizontal;
@@ -469,6 +470,12 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(knockbackForceX * knockbackDirection, knockbackForceY);
         }
+
+        foreach (Vector2 addVelocity in velocityQue)
+        {
+            rb.velocity += addVelocity;
+            velocityQue.Remove(addVelocity);
+        }
     }
     #endregion
 
@@ -495,6 +502,11 @@ public class PlayerController : MonoBehaviour
     public void Kill()
     {
         playerActor.ChangeHealth(-100);
+    }
+
+    public void AddVelocity(Vector2 velocityAddition)
+    {
+        velocityQue.Add(velocityAddition);
     }
 
     public void KnockBack(float direction)

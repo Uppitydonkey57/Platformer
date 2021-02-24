@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2419246102812127917}
   - component: {fileID: 1699200199205469577}
   - component: {fileID: 1699200199205469576}
+  - component: {fileID: -6022757742979238980}
   m_Layer: 14
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -120,7 +121,7 @@ PlatformEffector2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7382956617675300770}
-  m_Enabled: 1
+  m_Enabled: 0
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
@@ -261,5 +262,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPositions: []
-  startOnCollision: 1
+  startOnCollision: 0
   moveSpeed: 8
+--- !u!50 &-6022757742979238980
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7382956617675300770}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

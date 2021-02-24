@@ -17,13 +17,22 @@ public class MovingPlatform : MonoBehaviour
 
     bool hasStarted;
 
+    Rigidbody2D rb;
+
+    bool touchingPlayer;
+
+    PlayerController player;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<PlayerController>();
+
         actualEndPositions = GetActualPositions();
 
         startPos = transform.position;
+
+        rb = GetComponent<Rigidbody2D>();
 
         lineRenderer = GetComponent<LineRenderer>();
 
@@ -48,15 +57,15 @@ public class MovingPlatform : MonoBehaviour
         {
             float moveTime = GetTime(i == 0 ? (Vector2)transform.position : actualEndPositions[i - 1], actualEndPositions[i]);
 
-            sequence.Append(transform.DOMove(actualEndPositions[i], moveTime));
+            sequence.Append(rb.DOMove(actualEndPositions[i], moveTime, false));
         }
 
-        sequence.SetLoops(-1, LoopType.Yoyo);
+        sequence.SetLoops(-1, LoopType.Yoyo).SetUpdate(UpdateType.Fixed);
     }
 
     float GetTime(Vector2 position1, Vector2 position2)
     {
-        return ((position2.x - position1.x) + (position2.y - position1.y)) / moveSpeed;
+        return ((Mathf.Abs(position2.x) - Mathf.Abs(position1.x)) + (Mathf.Abs(position2.y) - Mathf.Abs(position1.y))) / moveSpeed;
     }
 
     Vector2[] GetActualPositions()
@@ -84,7 +93,7 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnDrawGizmos()
@@ -105,6 +114,8 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            touchingPlayer = true;
+
             collision.gameObject.transform.SetParent(transform);
 
             collision.gameObject.GetComponent<PlayerController>();
@@ -120,6 +131,11 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        collision.gameObject.transform.SetParent(null);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            touchingPlayer = false;
+
+            collision.gameObject.transform.SetParent(null);
+        }
     }
 }

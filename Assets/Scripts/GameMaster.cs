@@ -63,6 +63,8 @@ public class GameMaster : MonoBehaviour
 
         Debug.Log("Loading Scene");
 
+        FindObjectOfType<SaveMusic>().MusicSave();
+
         SceneManager.LoadScene(sceneName);
     }
 
@@ -79,6 +81,8 @@ public class GameMaster : MonoBehaviour
         yield return new WaitForSeconds(sceneTransitionTime);
 
         Debug.Log("Loading Scene");
+
+        FindObjectOfType<SaveMusic>().MusicSave();
 
         SceneManager.LoadScene(sceneName);
     }
