@@ -9,6 +9,8 @@ public class PlayerActor : Actor
 
     GameMaster gm;
 
+    
+
     private void Awake()
     {
         player = GetComponent<PlayerController>();
@@ -21,5 +23,7 @@ public class PlayerActor : Actor
         ChangeHealth(amount);
 
         player.KnockBack(knockbackDirection.x);
+
+
     }
 }

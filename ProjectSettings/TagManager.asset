@@ -48,6 +48,9 @@ TagManager:
   - name: SmokeParticles
     uniqueID: 3279404109
     locked: 0
+  - name: Door
+    uniqueID: 3285979417
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -56,6 +59,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3171548361
+    locked: 0
+  - name: Foreground
+    uniqueID: 366374653
     locked: 0
   - name: UI
     uniqueID: 578903583

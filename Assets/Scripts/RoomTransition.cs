@@ -9,18 +9,23 @@ public class RoomTransition : MonoBehaviour
 
     GameMaster gm;
 
+    Animator animator;
+
     private void Start()
     {
         gm = FindObjectOfType<GameMaster>();
+
+        animator = GetComponent<Animator>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             if (sceneName != null && sceneName != "")
             {
                 StartCoroutine(gm.LoadLevel(sceneName));
+                animator.SetTrigger("Open");
             }
             else
             {

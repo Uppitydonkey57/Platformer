@@ -617,6 +617,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (noGroundStop < 0)
+        {
+            StopDash();
+        }
+
+        if (other.gameObject.CompareTag("BouncyPlatform"))
+        {
+            jumpActivatedByInput = false;
+            jumpBuffer = jumpBufferTime;
+            noGroundStop = noGroundStopTime;
+        }
+
+        if (other.gameObject.CompareTag("DamageZone"))
+        {
+            Kill();
+            FindObjectOfType<CinemachineBrain>().enabled = false;
+        }
+    }
+
     void JumpEnded()
     {
         jump = false;

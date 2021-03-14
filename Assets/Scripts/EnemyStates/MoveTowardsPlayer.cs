@@ -13,6 +13,10 @@ public class MoveTowardsPlayer : StateMachineBehaviour
     public bool freezeX;
     public bool freezeY;
 
+    public bool useVelocity;
+
+    public Vector2 velocitySpeed;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -31,8 +35,17 @@ public class MoveTowardsPlayer : StateMachineBehaviour
     {
         if (player != null)
         {
-            Vector2 movePosition = Vector2.MoveTowards(rb.position, player.transform.position, moveSpeed * Time.deltaTime);
-            rb.MovePosition(new Vector2(freezeX ? animator.transform.position.x : movePosition.x, freezeY ? animator.transform.position.y : movePosition.y));
+            if (!useVelocity)
+            {
+                Vector2 movePosition = Vector2.MoveTowards(rb.position, player.transform.position, moveSpeed * Time.deltaTime);
+                rb.MovePosition(new Vector2(freezeX ? rb.transform.position.x : movePosition.x, freezeY ? rb.position.y : movePosition.y));
+            } else
+            {
+                Vector2 direction = new Vector2();
+                direction.x = player.transform.position.x < animator.transform.position.x ? -1 : 1;
+                direction.y = player.transform.position.y < animator.transform.position.y ? -1 : 1;
+                rb.velocity = new Vector2(freezeX ? rb.velocity.x : velocitySpeed.x * direction.x, freezeY ? rb.velocity.y : velocitySpeed.y * direction.y);
+            }
         }
     }
 

@@ -37,12 +37,9 @@ public class Attack : StateMachineBehaviour
 
             foreach (Weapon weapon in animator.GetComponentsInChildren<Weapon>())
             {
-                Debug.Log($"LOOKING {weapon.weaponName}");
-
                 if (weapon.weaponName == weaponName)
                 {
                     this.weapon = weapon;
-                    Debug.Log("FOUND");
                 }
             }
 

@@ -80,6 +80,10 @@ public class Actor : MonoBehaviour
         if (animator == null) animator = GetComponent<Animator>();
         if (animator == null) animator = GetComponentInChildren<Animator>();
 
+        if (animator != null)
+        {
+            animator.SetFloat("Hp", maxHealth);
+        }
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -149,11 +153,26 @@ public class Actor : MonoBehaviour
         }
     }
 
+    bool ParameterExists(string name)
+    {
+        foreach (AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == name)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public virtual void ChangeHealth(float amount)
     {
         if (!isInvinsible)
         {
             health += amount;
+
+            if (animator != null && ParameterExists("Hp")) animator.SetFloat("Hp", health);
 
             if (!isActive) Activate();
 

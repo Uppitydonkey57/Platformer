@@ -91,29 +91,7 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: Head
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 204
-      y: 4
-      width: 153
-      height: 279
-    spriteID: eaa06044646674f4ab94b77ea9d3a33f
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -211, y: -472}
-  - name: Robe
+  - name: Bricks
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -122,9 +100,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 192
-      height: 361
-    spriteID: 43a7664850c0f344fa1fbdc6c535cd9a
+      width: 544
+      height: 949
+    spriteID: 59b21f8294afdc4459b8d07b6c7c01e0
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -134,19 +112,41 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -391, y: -247}
-  - name: ArmRight
+    uvTransform: {x: -183, y: -3}
+  - name: Door
+    originalName: 
+    pivot: {x: 0.022965625, y: 0.4653425}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 956
+      width: 455
+      height: 888
+    spriteID: a559d5c57ac51d6479bba84ee15a31fc
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -233, y: 917}
+  - name: DoorBackground
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 204
-      y: 383
-      width: 272
-      height: 79
-    spriteID: 339de1705781b114e959f064ccc2ca1a
+      x: 555
+      y: 4
+      width: 455
+      height: 888
+    spriteID: efe4812fc89cea14f8235d2021bb06c4
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -156,76 +156,47 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -313, y: -134}
-  - name: ArmLeft
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 204
-      y: 291
-      width: 266
-      height: 84
-    spriteID: a1845fbe4a18cde409c1a44f6a1e2f21
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4, y: -233}
+    uvTransform: {x: 318, y: -35}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
-  importedTextureWidth: 512
-  importedTextureHeight: 512
+  importedTextureWidth: 1024
+  importedTextureHeight: 2048
   documentSize: {x: 1000, y: 1000}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
-  textureActualWidth: 512
-  textureActualHeight: 512
+  textureActualWidth: 1024
+  textureActualHeight: 2048
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Head
-    spriteName: Head
+  - name: Bricks
+    spriteName: Bricks
     isGroup: 0
     parentIndex: -1
-    spriteID: eaa06044646674f4ab94b77ea9d3a33f
-    layerID: 11
-    mosaicPosition: {x: 204, y: 4}
-  - name: Robe
-    spriteName: Robe
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 43a7664850c0f344fa1fbdc6c535cd9a
-    layerID: 8
+    spriteID: 59b21f8294afdc4459b8d07b6c7c01e0
+    layerID: 5
     mosaicPosition: {x: 4, y: 4}
-  - name: ArmRight
-    spriteName: ArmRight
+  - name: Door
+    spriteName: Door
     isGroup: 0
     parentIndex: -1
-    spriteID: 339de1705781b114e959f064ccc2ca1a
-    layerID: 10
-    mosaicPosition: {x: 204, y: 383}
-  - name: ArmLeft
-    spriteName: ArmLeft
+    spriteID: a559d5c57ac51d6479bba84ee15a31fc
+    layerID: 7
+    mosaicPosition: {x: 4, y: 956}
+  - name: DoorBackground
+    spriteName: DoorBackground
     isGroup: 0
     parentIndex: -1
-    spriteID: a1845fbe4a18cde409c1a44f6a1e2f21
-    layerID: 9
-    mosaicPosition: {x: 204, y: 291}
+    spriteID: efe4812fc89cea14f8235d2021bb06c4
+    layerID: 6
+    mosaicPosition: {x: 555, y: 4}
   characterData:
     bones: []
     parts: []

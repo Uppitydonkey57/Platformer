@@ -390,6 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackOnExit: 1
+  weaponName: 
 --- !u!1102 &2100138257508186009
 AnimatorState:
   serializedVersion: 6
@@ -481,6 +482,7 @@ MonoBehaviour:
     m_Bits: 256
   useChance: 1
   chance: 30
+  reverse: 0
 --- !u!1102 &7632019901030960469
 AnimatorState:
   serializedVersion: 6

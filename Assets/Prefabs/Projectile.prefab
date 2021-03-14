@@ -5142,7 +5142,6 @@ MonoBehaviour:
   ShakeAmount: 0.12
   destroyParticle: {fileID: 1023806690117094986, guid: f1583378727b7454e9ff1d2d4bd6d321,
     type: 3}
-  destroyOffCamera: 1
   useDestroyTime: 0
   destroyTime: 2
 --- !u!50 &9060082310061739855

@@ -22,6 +22,8 @@ public class PlayerInRange : StateMachineBehaviour
 
     public float chance;
 
+    public bool reverse;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -40,32 +42,40 @@ public class PlayerInRange : StateMachineBehaviour
     {
         if (Physics2D.OverlapCircle(enemy.transform.position, range, playerLayer))
         {
-            float randomValue = Mathf.Round(Random.Range(0, chance));
+            Set(animator);
+        } else if (reverse)
+        {
+            Set(animator);
+        }
+    }
 
-            if (switchType == SwitchType.Trigger)
+    void Set(Animator animator)
+    {
+        float randomValue = Mathf.Round(Random.Range(0, chance));
+
+        if (switchType == SwitchType.Trigger)
+        {
+            if (!useChance)
+                animator.SetTrigger(triggerName);
+            else
             {
-                if (!useChance)
+                if (randomValue == 1)
+                {
                     animator.SetTrigger(triggerName);
-                else
-                {
-                    if (randomValue == 1)
-                    {
-                        animator.SetTrigger(triggerName);
-                    }
-                }
-            } else if (switchType == SwitchType.Boolean)
-            {
-                if (!useChance)
-                    animator.SetBool(triggerName, true);
-                else
-                {
-                    if (randomValue == 1)
-                    {
-                        animator.SetBool(triggerName, true);
-                    }
                 }
             }
-            
+        }
+        else if (switchType == SwitchType.Boolean)
+        {
+            if (!useChance)
+                animator.SetBool(triggerName, true);
+            else
+            {
+                if (randomValue == 1)
+                {
+                    animator.SetBool(triggerName, true);
+                }
+            }
         }
     }
 
