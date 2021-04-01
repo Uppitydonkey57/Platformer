@@ -312,6 +312,17 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""a422c2eb-441f-466e-8cc7-b867f7f0e9bd"",
+                    ""path"": ""<Mouse>/radius"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightStick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ca3b22ad-69f9-4fe8-935f-6d9c5f61d35a"",
                     ""path"": ""<Keyboard>/#(R)"",
                     ""interactions"": """",

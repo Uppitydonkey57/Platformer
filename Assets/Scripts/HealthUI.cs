@@ -12,6 +12,19 @@ public class HealthUI : MonoBehaviour
         
     }
 
+    public void UpdateHealth(float currentHealth)
+    {
+        foreach (GameObject hp in health)
+        {
+            hp.SetActive(false);
+        }
+
+        for (float i = currentHealth - 1; i >= 0; i--) 
+        {
+            health[(int)i].SetActive(true);
+        } 
+    }
+
     // Update is called once per frame
     void Update()
     {

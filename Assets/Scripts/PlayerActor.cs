@@ -9,6 +9,7 @@ public class PlayerActor : Actor
 
     GameMaster gm;
 
+    HealthUI healthUI;
     
 
     private void Awake()
@@ -16,6 +17,8 @@ public class PlayerActor : Actor
         player = GetComponent<PlayerController>();
 
         gm = FindObjectOfType<GameMaster>();
+
+        healthUI = FindObjectOfType<HealthUI>();
     }
 
     public override void ChangeHealthKnockback(float amount, Vector2 knockbackDirection)
@@ -24,6 +27,6 @@ public class PlayerActor : Actor
 
         player.KnockBack(knockbackDirection.x);
 
-
+        healthUI.UpdateHealth(health);
     }
 }

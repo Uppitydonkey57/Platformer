@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Projectile : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Projectile : MonoBehaviour
 
     //public bool destroyOffCamera;
     public bool useDestroyTime;
+    public float destroyWait;
     public float destroyTime;
 
     Collider2D collider2d;
@@ -33,8 +35,7 @@ public class Projectile : MonoBehaviour
 
         if (useDestroyTime)
         {
-            Debug.Log("Destroying");
-            Destroy(gameObject, destroyTime);
+            StartCoroutine(DestructWait());
         }
 
         rend = GetComponent<SpriteRenderer>();
@@ -47,34 +48,23 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
-
-        if (collision.gameObject.GetComponent<Actor>() == null)
-        {
-            screenShake.Shake(shakeDuration, ShakeAmount);
-        }
-
-        if (destroyParticle != null)
-        {
-            GameObject particleInstance = Instantiate(destroyParticle, transform.position, Quaternion.identity);
-            Destroy(particleInstance, 10);
-        }
+        Destruct(collision.gameObject.GetComponent<Actor>());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        Destruct(collision.gameObject.GetComponent<Actor>());
+    }
 
-        if (collision.gameObject.GetComponent<Actor>() == null)
-        {
-            screenShake.Shake(shakeDuration, ShakeAmount);
-        }
+    IEnumerator DestructWait()
+    {
+        yield return new WaitForSeconds(destroyWait);
 
-        if (destroyParticle != null)
-        {
-            GameObject particleInstance = Instantiate(destroyParticle, transform.position, Quaternion.identity);
-            Destroy(particleInstance, 10);
-        }
+        transform.DOScale(new Vector2(0, 0), destroyTime);
+
+        yield return new WaitForSeconds(destroyTime);
+
+        Destruct(null);
     }
 
     IEnumerator StartDelay()
@@ -84,5 +74,21 @@ public class Projectile : MonoBehaviour
         yield return new WaitForSeconds(collisionStartDelay);
 
         collider2d.enabled = true;
+    }
+
+    void Destruct(Actor actor)
+    {
+        Destroy(gameObject);
+
+        if (actor == null)
+        {
+            screenShake.Shake(shakeDuration, ShakeAmount);
+        }
+
+        if (destroyParticle != null)
+        {
+            GameObject particleInstance = Instantiate(destroyParticle, transform.position, Quaternion.identity);
+            Destroy(particleInstance, 10);
+        }
     }
 }

@@ -11,11 +11,16 @@ public class RoomTransition : MonoBehaviour
 
     Animator animator;
 
+    public AudioClip transitionSound;
+    private AudioSource source;
+
     private void Start()
     {
         gm = FindObjectOfType<GameMaster>();
 
         animator = GetComponent<Animator>();
+
+        source = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,7 +30,10 @@ public class RoomTransition : MonoBehaviour
             if (sceneName != null && sceneName != "")
             {
                 StartCoroutine(gm.LoadLevel(sceneName));
+
                 animator.SetTrigger("Open");
+
+                source.PlayOneShot(transitionSound);
             }
             else
             {

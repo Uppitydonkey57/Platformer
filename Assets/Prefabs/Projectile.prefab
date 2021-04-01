@@ -4778,7 +4778,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1015563187
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -5142,8 +5142,9 @@ MonoBehaviour:
   ShakeAmount: 0.12
   destroyParticle: {fileID: 1023806690117094986, guid: f1583378727b7454e9ff1d2d4bd6d321,
     type: 3}
-  useDestroyTime: 0
-  destroyTime: 2
+  useDestroyTime: 1
+  destroyWait: 1.2
+  destroyTime: 0.2
 --- !u!50 &9060082310061739855
 Rigidbody2D:
   serializedVersion: 4

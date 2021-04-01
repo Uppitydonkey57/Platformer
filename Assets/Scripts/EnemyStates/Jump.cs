@@ -70,6 +70,8 @@ public class Jump : StateMachineBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, extraRayDistance, groundLayer);
 
+        Debug.Log(raycastHit.collider);
+
         return raycastHit.collider != null;
     }
 
