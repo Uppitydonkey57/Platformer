@@ -15,6 +15,8 @@ public class MoveTowardsPlayer : StateMachineBehaviour
 
     public bool useVelocity;
 
+    public Vector2 offset;
+
     public Vector2 velocitySpeed;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -37,13 +39,13 @@ public class MoveTowardsPlayer : StateMachineBehaviour
         {
             if (!useVelocity)
             {
-                Vector2 movePosition = Vector2.MoveTowards(rb.position, player.transform.position, moveSpeed * Time.deltaTime);
+                Vector2 movePosition = Vector2.MoveTowards(rb.position, (Vector2)player.transform.position + offset, moveSpeed * Time.deltaTime);
                 rb.MovePosition(new Vector2(freezeX ? rb.transform.position.x : movePosition.x, freezeY ? rb.position.y : movePosition.y));
             } else
             {
                 Vector2 direction = new Vector2();
-                direction.x = player.transform.position.x < animator.transform.position.x ? -1 : 1;
-                direction.y = player.transform.position.y < animator.transform.position.y ? -1 : 1;
+                direction.x = player.transform.position.x + offset.x < animator.transform.position.x ? -1 : 1;
+                direction.y = player.transform.position.y + offset.y < animator.transform.position.y ? -1 : 1;
                 rb.velocity = new Vector2(freezeX ? rb.velocity.x : velocitySpeed.x * direction.x, freezeY ? rb.velocity.y : velocitySpeed.y * direction.y);
             }
         }

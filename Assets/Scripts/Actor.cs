@@ -267,7 +267,8 @@ public class Actor : MonoBehaviour
                 }
             }
 
-            animator.enabled = true;
+            if (animator != null)
+                animator.enabled = true;
 
             isActive = true;
         }

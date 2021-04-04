@@ -23,11 +23,13 @@ public class FlipTowardsPlayer : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if ((player.transform.position.x - animator.transform.position.x) * (flip ? -1 : 1) < 0 && !isFacingRight)
+        bool abovePlayer = Mathf.Round(player.transform.position.x) ==  Mathf.Round(animator.transform.position.x);
+
+        if ((player.transform.position.x - animator.transform.position.x) * (flip ? -1 : 1) < 0 && !isFacingRight && !abovePlayer)
         {
             Flip();
         }
-        else if ((player.transform.position.x - animator.transform.position.x) * (flip ? -1 : 1) > 0 && isFacingRight)
+        else if ((player.transform.position.x - animator.transform.position.x) * (flip ? -1 : 1) > 0 && isFacingRight && !abovePlayer)
         {
             Flip();
         }
