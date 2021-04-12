@@ -813,20 +813,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53efcad97192f8c4c8164cbc3581b25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMelee: 0
+  weaponType: 0
+  shootWait: 0.4
+  weaponName: 
+  audioSource: {fileID: 0}
+  attackSounds: []
+  weaponColor: {r: 1, g: 0, b: 0, a: 1}
   attackRange: {x: 0, y: 0}
   attackOffset: {x: 0, y: 0}
-  isRaycast: 0
-  weaponName: 
   hitTag: 
   damage: 0
-  shootWait: 0.4
+  multipleFirePoints: 0
   firePoint: {fileID: 1870583485}
+  firePoints: []
   projectilePrefab: {fileID: 9031168756110560950, guid: 307b12bfc2ec49449b1c62a245148235,
     type: 3}
   projectileSpeed: 20
-  audioSource: {fileID: 0}
-  attackSounds: []
 --- !u!114 &3643445775811405499
 MonoBehaviour:
   m_ObjectHideFlags: 0

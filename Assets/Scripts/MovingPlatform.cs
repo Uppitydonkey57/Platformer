@@ -23,10 +23,6 @@ public class MovingPlatform : MonoBehaviour
 
     PlayerController player;
 
-    float time;
-
-    bool isFacingRight;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -38,13 +34,13 @@ public class MovingPlatform : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
-        //lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer = GetComponent<LineRenderer>();
 
-        //lineRenderer.positionCount = actualEndPositions.Length + 1;
-        //lineRenderer.SetPosition(0, startPos);
+        lineRenderer.positionCount = actualEndPositions.Length + 1;
+        lineRenderer.SetPosition(0, startPos);
 
-        //for (int i = 0; i < actualEndPositions.Length; i++)
-        //    lineRenderer.SetPosition(i + 1, actualEndPositions[i]);
+        for (int i = 0; i < actualEndPositions.Length; i++)
+            lineRenderer.SetPosition(i + 1, actualEndPositions[i]);
 
         if (!startOnCollision)
         {
@@ -88,11 +84,16 @@ public class MovingPlatform : MonoBehaviour
             }
 
             return actualPositions;
-        }
-        else
+        } else
         {
             return null;
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     private void OnDrawGizmos()

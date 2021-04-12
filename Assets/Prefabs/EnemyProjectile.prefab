@@ -100,12 +100,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  collisionStartDelay: 0
   shakeDuration: 0.09
   ShakeAmount: 0.1
   destroyParticle: {fileID: 3528666003074355179, guid: 2e9bb8939bc944343a007318dac19f2a,
     type: 3}
-  followTag: Player
-  followSpeed: 100
+  useDestroyTime: 0
+  destroyWait: 0
+  destroyTime: 0
 --- !u!58 &3476732108898878917
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -223,12 +225,17 @@ PrefabInstance:
     - target: {fileID: 7743384694462204235, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
         type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7743384694462204235, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
         type: 3}
       propertyPath: m_SortingLayerID
       value: -1015563187
+      objectReference: {fileID: 0}
+    - target: {fileID: 8000288883673178952, guid: 48ea9e9dd8be9974c8f24b15c6a97965,
+        type: 3}
+      propertyPath: prewarm
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48ea9e9dd8be9974c8f24b15c6a97965, type: 3}

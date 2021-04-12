@@ -6,6 +6,10 @@ public class IsMoving : StateMachineBehaviour
 {
     public string triggerName;
 
+    public bool shouldReturnFloat;
+
+    public bool roundFloat;
+
     Vector2 previousPosition;
 
     public bool reversed;
@@ -23,14 +27,29 @@ public class IsMoving : StateMachineBehaviour
     {
         float movementAmount = Mathf.Abs(Vector2.Distance((Vector2)animator.transform.position, previousPosition) * 100);
 
-        if (!reversed && movementAmount > ignoreDistance)
+        if (!shouldReturnFloat)
         {
-            animator.SetTrigger(triggerName);
-        }
-        
-        if (reversed && movementAmount <= ignoreDistance)
+            if (!reversed && movementAmount > ignoreDistance)
+            {
+                animator.SetTrigger(triggerName);
+            }
+
+            if (reversed && movementAmount <= ignoreDistance)
+            {
+                animator.SetTrigger(triggerName);
+            }
+        } else
         {
-            animator.SetTrigger(triggerName);
+            if ((!reversed && movementAmount > ignoreDistance) || (reversed && movementAmount <= ignoreDistance))
+            {
+                if (!roundFloat)
+                {
+                    animator.SetFloat(triggerName, movementAmount / 10);
+                } else
+                {
+                    animator.SetFloat(triggerName, Mathf.Round(movementAmount / 10));
+                }
+            }
         }
 
         previousPosition = animator.transform.position;
