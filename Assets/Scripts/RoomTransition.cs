@@ -11,6 +11,8 @@ public class RoomTransition : MonoBehaviour
 
     Animator animator;
 
+    public bool useBuildOrder;
+
     public AudioClip transitionSound;
     private AudioSource source;
 
@@ -27,7 +29,7 @@ public class RoomTransition : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (sceneName != null && sceneName != "")
+            if (sceneName != null && sceneName != "" && !useBuildOrder)
             {
                 StartCoroutine(gm.LoadLevel(sceneName));
 
@@ -35,7 +37,15 @@ public class RoomTransition : MonoBehaviour
 
                 source.PlayOneShot(transitionSound);
             }
-            else
+            else if (useBuildOrder)
+            {
+                StartCoroutine(gm.LoadLevel());
+
+                animator.SetTrigger("Open");
+
+                source.PlayOneShot(transitionSound);
+            }
+            else 
             {
                 Debug.LogWarning("You have not entered a scene name! ENTER A SCENE NAME!!!!!!!!!!!!!!!!");
             }

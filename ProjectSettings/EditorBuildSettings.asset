@@ -41,4 +41,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InProgressScenes/12.unity
     guid: 511965afd8be78741b81524a9f8a69ee
+  - enabled: 1
+    path: Assets/Scenes/FinishedScenes/13.unity
+    guid: 3210e65c17476ad4a9888cb56a7ff211
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/14.unity
+    guid: f7c0ed83cfa886b4a901a47f19e4159f
+  - enabled: 1
+    path: Assets/Scenes/FinishedScenes/16.unity
+    guid: 1dcfcbf1de50d504ca931719790af1c9
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/17.unity
+    guid: 66adc7b665f9bea41a920ef1dc6dcf8f
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/18.unity
+    guid: 8013732858b7ec34689e7d855bd280e3
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/19.unity
+    guid: 385a8b589360bad479c2b0459f334ee9
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/20.unity
+    guid: 80ce7cb160e515840b097e8a289fa084
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/BossFight.unity
+    guid: 5d09f5c5315dca24fa11c0fdba7a5971
   m_configObjects: {}

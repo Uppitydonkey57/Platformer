@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26095d547dbcf740b2fee825cacf334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxSpeedMultiplier: {x: 0.45, y: 0.21}
+  parallaxSpeedMultiplier: {x: 0.45, y: 0.7}
 --- !u!1 &1188112362505114985
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,9 +313,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 9
+  m_SortingLayerID: -658224861
+  m_SortingLayer: -3
+  m_SortingOrder: 20
   m_Sprite: {fileID: 6526735193227343104, guid: 21069d042ed00aa45a7b95b575979a8b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26095d547dbcf740b2fee825cacf334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxSpeedMultiplier: {x: 0.2, y: 0.1}
+  parallaxSpeedMultiplier: {x: 0.2, y: 0.6}
 --- !u!1 &1188112362596719913
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26095d547dbcf740b2fee825cacf334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxSpeedMultiplier: {x: 0.6, y: 0.3}
+  parallaxSpeedMultiplier: {x: 0.6, y: 0.8}
 --- !u!1 &1188112363355523672
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26095d547dbcf740b2fee825cacf334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxSpeedMultiplier: {x: 0.45, y: 0.21}
+  parallaxSpeedMultiplier: {x: 0.45, y: 0.8}
 --- !u!1 &1188112363921108460
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,4 +728,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26095d547dbcf740b2fee825cacf334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxSpeedMultiplier: {x: 0.6, y: 0.3}
+  parallaxSpeedMultiplier: {x: 0.6, y: 0.8}

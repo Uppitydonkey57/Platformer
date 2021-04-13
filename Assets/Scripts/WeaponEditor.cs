@@ -39,6 +39,9 @@ public class WeaponEditor : Editor
                     ShowParameter("firePoint");
                 ShowParameter("projectilePrefab");
                 ShowParameter("projectileSpeed");
+                ShowParameter("useFireChance");
+                if (weapon.useFireChance)
+                    ShowParameter("fireChance");
                 break;
 
             case Weapon.WeaponType.Raycast:

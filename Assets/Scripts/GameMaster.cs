@@ -61,22 +61,25 @@ public class GameMaster : MonoBehaviour
 
         yield return new WaitForSeconds(sceneTransitionTime);
 
-        Debug.Log("Loading Scene");
-
         FindObjectOfType<SaveMusic>().MusicSave();
 
         SceneManager.LoadScene(sceneName);
     }
 
+    public IEnumerator LoadLevel()
+    {
+        sceneTransitionAnimator.SetTrigger("Start");
+
+        yield return new WaitForSeconds(sceneTransitionTime);
+
+        FindObjectOfType<SaveMusic>().MusicSave();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public IEnumerator LoadLevelTime(string sceneName, float waitTime)
     {
-        Debug.Log("Thing2");
-
         yield return new WaitForSeconds(waitTime);
-
-        Debug.Log("Thing");
-        
-        sceneTransitionAnimator.SetTrigger("Start");
 
         yield return new WaitForSeconds(sceneTransitionTime);
 

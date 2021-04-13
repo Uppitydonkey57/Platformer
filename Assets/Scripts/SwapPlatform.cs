@@ -15,6 +15,8 @@ public class SwapPlatform : MonoBehaviour
     public float platformTime;
     public float noPlatformTime;
 
+    public bool startOn = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,10 @@ public class SwapPlatform : MonoBehaviour
 
         collider2d = GetComponent<Collider2D>();
 
-        StartCoroutine(Swap());
+        if (startOn)
+            StartCoroutine(Swap());
+        else
+            StartCoroutine(SwapReverse());
     }
 
     // Update is called once per frame
@@ -46,6 +51,24 @@ public class SwapPlatform : MonoBehaviour
             spriteRenderer.color = color;
 
             yield return new WaitForSeconds(noPlatformTime);
+        }
+    }
+
+    IEnumerator SwapReverse()
+    {
+        while (true)
+        {
+            collider2d.enabled = false;
+
+            spriteRenderer.color = color;
+
+            yield return new WaitForSeconds(noPlatformTime);
+
+            collider2d.enabled = true;
+
+            spriteRenderer.color = initialColor;
+
+            yield return new WaitForSeconds(platformTime);
         }
     }
 }

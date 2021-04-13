@@ -36,6 +36,9 @@ public class Weapon : MonoBehaviour
     public GameObject projectilePrefab;
     public float projectileSpeed;
 
+    public bool useFireChance;
+    public float fireChance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,26 +75,30 @@ public class Weapon : MonoBehaviour
 
                 case WeaponType.Projectile:
                     if (multipleFirePoints) {
-                        foreach (Transform firePoint in firePoints) 
+                        foreach (Transform tempFirePoint in firePoints) 
                         {
-                            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-
-                            Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
-
-                            projectileRb.AddForce(projectile.transform.up * projectileSpeed, ForceMode2D.Impulse);
+                            FireProjectile(tempFirePoint);
                         }
                     } else 
                     {
-                        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-
-                        Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
-
-                        projectileRb.AddForce(projectile.transform.up * projectileSpeed, ForceMode2D.Impulse);
+                        FireProjectile(firePoint);
                     }
                     
                     break;
             }
             StartCoroutine(ShootWait());
+        }
+    }
+
+    void FireProjectile(Transform temporaryFirePoint)
+    {
+        if (!useFireChance || (useFireChance && UnityEngine.Random.Range(0, fireChance) == 1))
+        {
+            GameObject projectile = Instantiate(projectilePrefab, temporaryFirePoint.position, temporaryFirePoint.rotation);
+
+            Rigidbody2D projectileRb = projectile.GetComponent<Rigidbody2D>();
+
+            projectileRb.AddForce(projectile.transform.up * projectileSpeed, ForceMode2D.Impulse);
         }
     }
 

@@ -23,6 +23,10 @@ public class MovingPlatform : MonoBehaviour
 
     PlayerController player;
 
+    float time;
+
+    bool isFacingRight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,7 +88,8 @@ public class MovingPlatform : MonoBehaviour
             }
 
             return actualPositions;
-        } else
+        }
+        else
         {
             return null;
         }
@@ -93,7 +98,6 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     private void OnDrawGizmos()
@@ -127,6 +131,14 @@ public class MovingPlatform : MonoBehaviour
                 StartMoving();
             }
         }
+    }
+
+    public void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 
     private void OnCollisionExit2D(Collision2D collision)

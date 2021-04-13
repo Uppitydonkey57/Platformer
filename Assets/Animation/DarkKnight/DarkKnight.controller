@@ -28,6 +28,7 @@ AnimatorState:
   - {fileID: -483604473348510668}
   m_StateMachineBehaviours:
   - {fileID: -1203730931587347559}
+  - {fileID: 8654535105158191632}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -111,6 +112,20 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &-7575081826900032482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f194f784dd15526419351c37fa2650c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackOnExit: 0
+  weaponName: FallingStuff
 --- !u!1102 &-6714844566922213701
 AnimatorState:
   serializedVersion: 6
@@ -218,6 +233,7 @@ MonoBehaviour:
   freezeX: 0
   freezeY: 1
   useVelocity: 1
+  offset: {x: 0, y: 0}
   velocitySpeed: {x: 7, y: 5}
 --- !u!1109 &-5399348672350964395
 AnimatorTransition:
@@ -482,6 +498,7 @@ MonoBehaviour:
   freezeX: 0
   freezeY: 1
   useVelocity: 0
+  offset: {x: 0, y: 0}
   velocitySpeed: {x: 0, y: 0}
 --- !u!1107 &-1877469069549161807
 AnimatorStateMachine:
@@ -535,6 +552,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: -6671464098585319053}
   - {fileID: -5461653848280143714}
+  - {fileID: -7575081826900032482}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -680,6 +698,7 @@ MonoBehaviour:
   freezeX: 0
   freezeY: 1
   useVelocity: 0
+  offset: {x: 0, y: 0}
   velocitySpeed: {x: 0, y: 0}
 --- !u!91 &9100000
 AnimatorController:
@@ -695,37 +714,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: PlayerInRange
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: RangeAttack
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Hp
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Hit
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: FinishedJump
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1065,6 +1084,7 @@ MonoBehaviour:
   freezeX: 0
   freezeY: 1
   useVelocity: 0
+  offset: {x: 0, y: 0}
   velocitySpeed: {x: 0, y: 0}
 --- !u!1101 &7008855242130445372
 AnimatorStateTransition:
@@ -1141,6 +1161,20 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 0}
+--- !u!114 &8654535105158191632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f194f784dd15526419351c37fa2650c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackOnExit: 0
+  weaponName: 
 --- !u!114 &9154119008024456612
 MonoBehaviour:
   m_ObjectHideFlags: 1
