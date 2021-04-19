@@ -365,6 +365,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2286892916013406254, guid: 46ba7f7894073444dbbb1f068144f7ad,
     type: 3}
   projectileSpeed: 7
+  useFireChance: 0
+  fireChance: 0
 --- !u!114 &3523967011986605893
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -92,7 +92,9 @@ public class Weapon : MonoBehaviour
 
     void FireProjectile(Transform temporaryFirePoint)
     {
-        if (!useFireChance || (useFireChance && UnityEngine.Random.Range(0, fireChance) == 1))
+        float fireChanceNumber = Mathf.Round(UnityEngine.Random.Range(0, fireChance));
+
+        if (!useFireChance || (useFireChance && fireChanceNumber == 0))
         {
             GameObject projectile = Instantiate(projectilePrefab, temporaryFirePoint.position, temporaryFirePoint.rotation);
 

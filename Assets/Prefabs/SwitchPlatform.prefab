@@ -126,8 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialColor: {r: 0.49019608, g: 0, b: 0.22352941, a: 1}
   color: {r: 0.20754719, g: 0, b: 0.094641484, a: 1}
-  platformTime: 2.5
-  noPlatformTime: 1.5
+  platformTime: 2
+  noPlatformTime: 2
   startOn: 1
 --- !u!251 &5342656943711216825
 PlatformEffector2D:

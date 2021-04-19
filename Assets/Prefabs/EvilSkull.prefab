@@ -200,6 +200,8 @@ MonoBehaviour:
   firePoints: []
   projectilePrefab: {fileID: 0}
   projectileSpeed: 0
+  useFireChance: 0
+  fireChance: 0
 --- !u!114 &1387890883
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -716,6 +716,8 @@ MonoBehaviour:
   firePoints: []
   projectilePrefab: {fileID: 0}
   projectileSpeed: 0
+  useFireChance: 0
+  fireChance: 0
 --- !u!1001 &926728494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -742,7 +744,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1548668180}
     - target: {fileID: 2249278815241519374, guid: 3c334bd81b13098418ba717945ca8022,
         type: 3}
       propertyPath: m_Name
@@ -756,12 +758,12 @@ PrefabInstance:
     - target: {fileID: 2249278815241519408, guid: 3c334bd81b13098418ba717945ca8022,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4167771
+      value: -0.00000017881393
       objectReference: {fileID: 0}
     - target: {fileID: 2249278815241519408, guid: 3c334bd81b13098418ba717945ca8022,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.6696906
+      value: 2.078461
       objectReference: {fileID: 0}
     - target: {fileID: 2249278815241519408, guid: 3c334bd81b13098418ba717945ca8022,
         type: 3}
@@ -9789,6 +9791,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91a13bcf6e3a91649a337ca1f98c426e, type: 3}
+--- !u!4 &1548668180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1172819113285780385, guid: 0f00714024f5465458bad10f3da448a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1173468475}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1602979776
 PrefabInstance:
   m_ObjectHideFlags: 0

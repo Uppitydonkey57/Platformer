@@ -77788,6 +77788,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2499492405234283477, guid: 3c93b90a9318d1048b83cb703a33a397,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227261140863794320, guid: 3c93b90a9318d1048b83cb703a33a397,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227261140863794320, guid: 3c93b90a9318d1048b83cb703a33a397,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227261140863794320, guid: 3c93b90a9318d1048b83cb703a33a397,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5796665499788695766, guid: 3c93b90a9318d1048b83cb703a33a397,
         type: 3}
       propertyPath: waitObjects.Array.size

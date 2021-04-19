@@ -324,8 +324,8 @@ public class PlayerController : MonoBehaviour
         }
 
         //Wall Slide
-        isTouchingFront = Physics2D.OverlapBox(frontCheck.position, rangeSize, whatIsGround);
-        isTouchingFront2 = Physics2D.OverlapBox(frontCheck2.position, rangeSize, whatIsGround);
+        isTouchingFront = Physics2D.OverlapBox(frontCheck.position, rangeSize, 0, whatIsGround) != null;
+        isTouchingFront2 = Physics2D.OverlapBox(frontCheck2.position, rangeSize, 0, whatIsGround) != null;
 
         /*Debug.Log(holdOn);
 
@@ -483,8 +483,6 @@ public class PlayerController : MonoBehaviour
 
     void Shoot(InputAction.CallbackContext context)
     {
-        Debug.Log("Shoot");
-
         float initialRotation = weapon.firePoint.transform.rotation.z;
 
 
