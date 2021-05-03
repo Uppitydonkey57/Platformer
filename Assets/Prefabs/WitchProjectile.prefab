@@ -54,7 +54,7 @@ MonoBehaviour:
   destroyParticle: {fileID: 3528666003074355179, guid: 766f6173fb440ce448ec8ca30616687d,
     type: 3}
   useDestroyTime: 1
-  destroyWait: 2
+  destroyWait: 4
   destroyTime: 1
 --- !u!50 &4510081374706501706
 Rigidbody2D:

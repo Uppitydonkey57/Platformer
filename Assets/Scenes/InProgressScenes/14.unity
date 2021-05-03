@@ -77447,6 +77447,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2684360484194873329, guid: 75efc60c218bc5c48a22988fdfb2b551,
+        type: 3}
+      propertyPath: isMatsMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75efc60c218bc5c48a22988fdfb2b551, type: 3}
 --- !u!1001 &1298357927

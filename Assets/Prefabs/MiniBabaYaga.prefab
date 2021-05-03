@@ -429,7 +429,7 @@ MonoBehaviour:
   hitFlashDuration: 0.05
   isInvinsible: 0
   useCorpseLayer: 0
-  debugHealth: 1
+  debugHealth: 0
 --- !u!114 &5077262688676433762
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -61,7 +61,8 @@ public class GameMaster : MonoBehaviour
 
         yield return new WaitForSeconds(sceneTransitionTime);
 
-        FindObjectOfType<SaveMusic>().MusicSave();
+        if (FindObjectOfType<SaveMusic>() != null)
+            FindObjectOfType<SaveMusic>().MusicSave();
 
         SceneManager.LoadScene(sceneName);
     }
@@ -93,7 +94,7 @@ public class GameMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.escapeKey.isPressed)
+        if (Application.isEditor && Keyboard.current.escapeKey.isPressed)
         {
             Application.Quit();
         }

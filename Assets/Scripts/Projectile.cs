@@ -48,12 +48,12 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destruct(collision.gameObject.GetComponent<Actor>());
+        Destruct(collision.gameObject.GetComponent<Actor>(), true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destruct(collision.gameObject.GetComponent<Actor>());
+        Destruct(collision.gameObject.GetComponent<Actor>(), true);
     }
 
     IEnumerator DestructWait()
@@ -64,7 +64,7 @@ public class Projectile : MonoBehaviour
 
         yield return new WaitForSeconds(destroyTime);
 
-        Destruct(null);
+        Destruct(null, false);
     }
 
     IEnumerator StartDelay()
@@ -76,7 +76,7 @@ public class Projectile : MonoBehaviour
         collider2d.enabled = true;
     }
 
-    void Destruct(Actor actor)
+    void Destruct(Actor actor, bool showParticle)
     {
         Destroy(gameObject);
 
@@ -85,7 +85,7 @@ public class Projectile : MonoBehaviour
             screenShake.Shake(shakeDuration, ShakeAmount);
         }
 
-        if (destroyParticle != null)
+        if (destroyParticle != null && showParticle)
         {
             GameObject particleInstance = Instantiate(destroyParticle, transform.position, Quaternion.identity);
             Destroy(particleInstance, 10);

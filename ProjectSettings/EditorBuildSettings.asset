@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/InProgressScenes/TitleScreen.unity
+    guid: f7062b03a3e8208409dbbe2b9939432c
+  - enabled: 1
     path: Assets/Scenes/FinishedScenes/World1Level1(Small).unity
     guid: 26cb6a23106cb4b4da68e20d938d3fc0
   - enabled: 1
@@ -65,4 +68,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InProgressScenes/BossFight.unity
     guid: 5d09f5c5315dca24fa11c0fdba7a5971
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/w2l1.unity
+    guid: 30a5831a9939394489ad0f5a618003f1
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/w2l2.unity
+    guid: 9177db561a7e5ce4fa9cfec4484c89e9
   m_configObjects: {}

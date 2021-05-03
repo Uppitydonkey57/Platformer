@@ -21,6 +21,8 @@ public class Jump : StateMachineBehaviour
 
     bool hasStartedJump;
 
+    public string jumpSpeed;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -60,6 +62,8 @@ public class Jump : StateMachineBehaviour
             hasStartedJump = true;
         }
 
+        animator.SetFloat(jumpSpeed, rb.velocity.y);
+
         if (IsGrounded() && hasStartedJump && jumpOnce)
         {
             animator.SetTrigger(jumpEndTrigger);
@@ -69,8 +73,6 @@ public class Jump : StateMachineBehaviour
     bool IsGrounded()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, extraRayDistance, groundLayer);
-
-        Debug.Log(raycastHit.collider);
 
         return raycastHit.collider != null;
     }

@@ -10,11 +10,19 @@ public class ActionOnCollision : MonoBehaviour
 
     public LayerMask layer;
 
+    public bool doOnce;
+
+    bool hasPerformed;
+
     // Update is called once per frame
     void Update()
     {
-        if (Physics2D.OverlapBox(transform.position, size, 0, layer))
-            foreach (Action action in actions) action.PerformAction(); 
+        if ((hasPerformed && !doOnce) || !hasPerformed)
+            if (Physics2D.OverlapBox(transform.position, size, 0, layer))
+            {
+                foreach (Action action in actions) action.PerformAction();
+                hasPerformed = true;
+            }
     }
 
     private void OnDrawGizmos()

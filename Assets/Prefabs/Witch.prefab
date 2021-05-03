@@ -292,7 +292,7 @@ MonoBehaviour:
   behaviours: []
   animator: {fileID: 0}
   isActive: 0
-  activationRange: 10.27
+  activationRange: 15
   activationLayer:
     serializedVersion: 2
     m_Bits: 256

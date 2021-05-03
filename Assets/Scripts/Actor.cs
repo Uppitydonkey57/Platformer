@@ -254,7 +254,7 @@ public class Actor : MonoBehaviour
         rb.AddForce(knockbackDirection * knockbackSpeed * Time.deltaTime, ForceMode2D.Impulse);
     }
 
-    void Activate()
+    public void Activate()
     {
         if (shouldUseActivationRange)
         {
