@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class RoomTransition : MonoBehaviour
 {
@@ -16,6 +17,14 @@ public class RoomTransition : MonoBehaviour
     public AudioClip transitionSound;
     private AudioSource source;
 
+    public float waitTime;
+
+    bool hasTransitioned = false;
+
+    bool shouldStopCamera;
+
+    CinemachineVirtualCamera virtualCamera;
+
     private void Start()
     {
         gm = FindObjectOfType<GameMaster>();
@@ -23,15 +32,38 @@ public class RoomTransition : MonoBehaviour
         animator = GetComponent<Animator>();
 
         source = GetComponent<AudioSource>();
+
+        virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
+            Transition();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Transition();
+        }
+    }
+
+    void Transition()
+    {
+        if (hasTransitioned)
+        {
+            if (shouldStopCamera)
+            {
+                virtualCamera.Follow = null;
+            }
+            
             if (sceneName != null && sceneName != "" && !useBuildOrder)
             {
-                StartCoroutine(gm.LoadLevel(sceneName));
+                StartCoroutine(gm.LoadLevelTime(sceneName, waitTime));
 
                 animator.SetTrigger("Open");
 
@@ -45,10 +77,12 @@ public class RoomTransition : MonoBehaviour
 
                 source.PlayOneShot(transitionSound);
             }
-            else 
+            else
             {
                 Debug.LogWarning("You have not entered a scene name! ENTER A SCENE NAME!!!!!!!!!!!!!!!!");
             }
+
+            hasTransitioned = true;
         }
     }
 }

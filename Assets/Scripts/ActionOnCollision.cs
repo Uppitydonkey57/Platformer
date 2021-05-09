@@ -14,6 +14,8 @@ public class ActionOnCollision : MonoBehaviour
 
     bool hasPerformed;
 
+    public Color collisionColor = Color.white;
+
     // Update is called once per frame
     void Update()
     {
@@ -27,6 +29,7 @@ public class ActionOnCollision : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = collisionColor;
         Gizmos.DrawWireCube(transform.position, size);
     }
 }

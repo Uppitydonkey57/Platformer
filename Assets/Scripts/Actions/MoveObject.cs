@@ -25,8 +25,6 @@ public class MoveObject : Action
 
     public override void PerformAction()
     {
-        Debug.Log(gameObject.name);
-
         Sequence sequence = DOTween.Sequence();
         
         sequence.Append(moveObject.transform.DOMove(new Vector3(position.x, position.y, moveObject.transform.position.z), moveTime));
