@@ -21,7 +21,7 @@ public class RoomTransition : MonoBehaviour
 
     bool hasTransitioned = false;
 
-    bool shouldStopCamera;
+    public bool shouldStopCamera;
 
     CinemachineVirtualCamera virtualCamera;
 
@@ -41,6 +41,7 @@ public class RoomTransition : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Transition();
+            Debug.Log("TRANSITION!!!!!");
         }
     }
 
@@ -49,18 +50,22 @@ public class RoomTransition : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Transition();
+            Debug.Log("TRANSITION!!!!!");
         }
     }
 
     void Transition()
     {
-        if (hasTransitioned)
+
+        if (!hasTransitioned)
         {
             if (shouldStopCamera)
             {
                 virtualCamera.Follow = null;
+                virtualCamera.LookAt = null;
+                Debug.Log("TRANSITION2!!!!!");
             }
-            
+
             if (sceneName != null && sceneName != "" && !useBuildOrder)
             {
                 StartCoroutine(gm.LoadLevelTime(sceneName, waitTime));

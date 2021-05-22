@@ -69,32 +69,41 @@ EditorBuildSettings:
     path: Assets/Scenes/InProgressScenes/BossFight.unity
     guid: 5d09f5c5315dca24fa11c0fdba7a5971
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/w2l1.unity
+    path: Assets/Scenes/InProgressScenes/Transition1.unity
+    guid: 03eb5fc34ed2e3b4ba58413216e0f972
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/Transition2.unity
+    guid: cab61d9bf9abe7b458c626a6f4ba194e
+  - enabled: 1
+    path: Assets/Scenes/FinishedScenes/w2l1.unity
     guid: 30a5831a9939394489ad0f5a618003f1
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/w2l2.unity
+    path: Assets/Scenes/FinishedScenes/w2l2.unity
     guid: 9177db561a7e5ce4fa9cfec4484c89e9
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/w2l3.unity
+    path: Assets/Scenes/FinishedScenes/w2l3.unity
     guid: 52f2f67a368f52946a17375f5e3e67d7
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/w2l4.unity
+    path: Assets/Scenes/FinishedScenes/w2l4.unity
     guid: d77fe9cd374b6f344bb2a53cceee58dd
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/w2l5.unity
+    path: Assets/Scenes/FinishedScenes/w2l5.unity
     guid: bb4df99c544a63341988f65c93f611b5
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/w2l6.unity
+    path: Assets/Scenes/FinishedScenes/w2l6.unity
     guid: eb6d80565d4f85d42b0b36565b99ff7e
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/w2l7.unity
+    path: Assets/Scenes/FinishedScenes/w2l7.unity
     guid: c5c4df81c29179345bd6754881b709b0
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/w2l8.unity
+    path: Assets/Scenes/FinishedScenes/w2l8.unity
     guid: 216bc3fc007477d46986ea5c89b498c9
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/w2l9.unity
+    path: Assets/Scenes/FinishedScenes/w2l9.unity
     guid: 434fe03e6832a204d8e2ff8504c0651c
+  - enabled: 1
+    path: Assets/Scenes/FinishedScenes/w2l10.unity
+    guid: cc833370a2d26d64ea044247fb68640b
   - enabled: 1
     path: Assets/Scenes/InProgressScenes/WitchHut.unity
     guid: e87a77ebba5adbc4d8bd4da34643d4cd

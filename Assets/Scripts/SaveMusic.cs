@@ -16,6 +16,5 @@ public class SaveMusic : MonoBehaviour
     {
         PlayerPrefs.SetFloat(musicSource.clip.name, musicSource.time);
         Debug.Log(PlayerPrefs.GetFloat(musicSource.clip.name));
-        Debug.Log(musicSource.time);
     }
 }

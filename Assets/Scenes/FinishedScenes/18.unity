@@ -109240,7 +109240,7 @@ PrefabInstance:
     - target: {fileID: 2827332827505552663, guid: d0f0ae490f8b5504c910c7452961b4a3,
         type: 3}
       propertyPath: endPositions.Array.data[0].y
-      value: -4.52
+      value: -5.49
       objectReference: {fileID: 0}
     - target: {fileID: 6145229404715064465, guid: d0f0ae490f8b5504c910c7452961b4a3,
         type: 3}

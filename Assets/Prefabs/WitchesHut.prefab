@@ -487,6 +487,7 @@ MonoBehaviour:
   useBuildOrder: 0
   transitionSound: {fileID: 8300000, guid: 00de3aabe55bb43469b8cf2654e140c0, type: 3}
   waitTime: 3
+  shouldStopCamera: 0
 --- !u!82 &3052708348289772657
 AudioSource:
   m_ObjectHideFlags: 0
@@ -845,8 +846,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
-      minScalar: 5
+      scalar: 6
+      minScalar: 4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -961,7 +962,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
+      scalar: 0.7
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -1659,9 +1660,9 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
-          inSlope: -0.4251205
-          outSlope: -0.4251205
+          value: 0.76923144
+          inSlope: -0.16179778
+          outSlope: -0.16179778
           tangentMode: 34
           weightedMode: 0
           inWeight: 0
@@ -1669,8 +1670,8 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0.8763716
           value: 0.62743646
-          inSlope: -2.3675704
-          outSlope: -2.3675704
+          inSlope: -2.2359092
+          outSlope: -2.2359092
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334

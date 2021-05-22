@@ -304,7 +304,8 @@ MonoBehaviour:
   knockbackSpeed: 0
   healRate: 0
   healthBar: {fileID: 0}
-  deathParticle: {fileID: 0}
+  deathParticle: {fileID: 491542139239134358, guid: 612b56f0878924440a56b74fa8045006,
+    type: 3}
   audioSource: {fileID: 0}
   hitSounds: []
   hitWait: 0
