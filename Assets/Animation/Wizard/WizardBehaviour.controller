@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flip: 1
+  resetOnExit: 1
 --- !u!1107 &-5713467470077350493
 AnimatorStateMachine:
   serializedVersion: 6
@@ -180,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flip: 1
+  resetOnExit: 1
 --- !u!1101 &-1143661144507193295
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -435,6 +437,21 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 16385
+--- !u!114 &3037738527927720598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eaf6f5a023a45a41814d2fa2a4facac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 8b814a77e30ec36478e7de6e9d64c815, type: 3}
+  whenToPlay: 0
 --- !u!1102 &5259735120571467339
 AnimatorState:
   serializedVersion: 6
@@ -526,6 +543,7 @@ AnimatorState:
   - {fileID: -1143661144507193295}
   m_StateMachineBehaviours:
   - {fileID: 2425943562660244424}
+  - {fileID: 3037738527927720598}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1

@@ -260,6 +260,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   hitSounds:
   - {fileID: 8300000, guid: c68960d735c80ed44a91ea803edc2e50, type: 3}
+  deathSound: {fileID: 0}
   hitWait: 0
   DestroyOnDeath: 1
   DestroyCanvas: 0
@@ -279,7 +280,8 @@ AudioSource:
   m_GameObject: {fileID: 8152918142661498064}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 9b1f55f1c7fcab24684edc182fd431a6,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class DashAtPlayer : StateMachineBehaviour
 {
-    PlayerController player;
+    GameObject player;
+
+    public bool findObjectWithTag;
+    public string findTag;
 
     Rigidbody2D rb;
 
@@ -36,7 +39,12 @@ public class DashAtPlayer : StateMachineBehaviour
             transform = animator.GetComponentInParent<Transform>();
         }
 
-        player = FindObjectOfType<PlayerController>();
+        player = FindObjectOfType<PlayerController>().gameObject;
+
+        if (findObjectWithTag)
+        {
+            player = GameObject.FindGameObjectWithTag(findTag);
+        }
 
         Vector2 moveDirection = ((Vector2)player.transform.position - rb.position).normalized;
 

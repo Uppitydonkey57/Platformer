@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class MoveTowardsPlayer : StateMachineBehaviour
 {
-    PlayerController player;
+    GameObject player;
 
     public float moveSpeed;
+
+    public bool findObjectWithTag;
+    public string findTag;
 
     Rigidbody2D rb;
 
@@ -22,7 +25,12 @@ public class MoveTowardsPlayer : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player = FindObjectOfType<PlayerController>();
+        player = FindObjectOfType<PlayerController>().gameObject;
+
+        if (findObjectWithTag)
+        {
+            player = GameObject.FindGameObjectWithTag(findTag);
+        }
 
         rb = animator.GetComponent<Rigidbody2D>();
 

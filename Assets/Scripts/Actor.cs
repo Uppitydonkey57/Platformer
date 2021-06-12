@@ -48,6 +48,7 @@ public class Actor : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip[] hitSounds;
+    public AudioClip deathSound;
 
     public float hitWait;
 
@@ -188,7 +189,13 @@ public class Actor : MonoBehaviour
 
                 if (hitSounds != null && hitSounds.Length > 0)
                 {
-                    audioSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length - 1)]);
+                    if (hitSounds.Length > 1)
+                    {
+                        audioSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length - 1)]);
+                    } else
+                    {
+                        audioSource.PlayOneShot(hitSounds[0]);
+                    }
                 }
 
                 if (animator != null)
@@ -204,6 +211,32 @@ public class Actor : MonoBehaviour
             {
                 if (DestroyOnDeath)
                 {
+                    if ((hitSounds != null && hitSounds.Length > 0) || deathSound != null)
+                    {
+                        GameObject soundObject = new GameObject(gameObject.name + "'s Death Sound");
+                        AudioSource objectSource = soundObject.AddComponent<AudioSource>();
+                        objectSource.outputAudioMixerGroup = audioSource.outputAudioMixerGroup;
+                        objectSource.volume = audioSource.volume;
+                        objectSource.pitch = audioSource.pitch;
+
+                        if (deathSound == null)
+                        {
+                            if (hitSounds.Length > 1)
+                            {
+                                objectSource.PlayOneShot(hitSounds[UnityEngine.Random.Range(0, hitSounds.Length - 1)]);
+                            }
+                            else
+                            {
+                                objectSource.PlayOneShot(hitSounds[0]);
+                            }
+                        } else
+                        {
+                            objectSource.PlayOneShot(deathSound);
+                        }
+
+                        Destroy(soundObject, 10f);
+                    }
+
                     if (deathParticle != null)
                     {
                         GameObject particle = Instantiate(deathParticle, transform.position, Quaternion.identity);

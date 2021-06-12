@@ -167,6 +167,12 @@ public class PlayerController : MonoBehaviour
     //Other
     bool jumpActivatedByInput = true;
 
+    public AudioSource source;
+
+    public AudioClip jumpSound;
+    public AudioClip doubleJumpSound;
+    public AudioClip wallJumpSound;
+
     #endregion
 
     #region Main Functions
@@ -312,6 +318,7 @@ public class PlayerController : MonoBehaviour
             jumps = extraJumps;
             jumpBuffer = 0;
             velocity.y = jumpTakeOffSpeed;
+            source.PlayOneShot(jumpSound, 1f);
         } else if (jumpUp && jumpActivatedByInput)
         {
             // Continues going up if you hold down the button
@@ -373,6 +380,7 @@ public class PlayerController : MonoBehaviour
             wallJumpingY = true;
             Invoke(nameof(SetWallJumpingXToFalse), wallJumpTimeX);
             Invoke(nameof(SetWallJumpingYToFalse), wallJumpTimeY);
+            source.PlayOneShot(wallJumpSound, 1f);
         }
 
         if (wallJumpingX)
@@ -389,6 +397,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpActivatedByInput = true;
             velocity.y = jumpTakeOffSpeed;
+            source.PlayOneShot(doubleJumpSound, 1f);
             jumps--;
         }
 

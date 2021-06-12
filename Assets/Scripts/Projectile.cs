@@ -25,6 +25,9 @@ public class Projectile : MonoBehaviour
 
     SpriteRenderer rend;
 
+    public AudioClip sound;
+    AudioSource source;
+
     private void Start()
     {
         screenShake = FindObjectOfType<ScreenShake>();
@@ -39,6 +42,8 @@ public class Projectile : MonoBehaviour
         }
 
         rend = GetComponent<SpriteRenderer>();
+
+        source = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -83,6 +88,19 @@ public class Projectile : MonoBehaviour
         if (actor == null)
         {
             screenShake.Shake(shakeDuration, ShakeAmount);
+        }
+
+        if (sound != null && source != null && showParticle)
+        {
+            GameObject soundObject = new GameObject(gameObject.name + "'s Death Sound");
+            AudioSource objectSource = soundObject.AddComponent<AudioSource>();
+            objectSource.outputAudioMixerGroup = source.outputAudioMixerGroup;
+            objectSource.volume = source.volume;
+            objectSource.pitch = source.pitch;
+
+            objectSource.PlayOneShot(sound);
+
+            Destroy(gameObject, 4f);
         }
 
         if (destroyParticle != null && showParticle)

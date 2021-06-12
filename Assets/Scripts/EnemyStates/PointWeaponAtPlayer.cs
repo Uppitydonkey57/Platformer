@@ -16,6 +16,8 @@ public class PointWeaponAtPlayer : StateMachineBehaviour
 
     PlayerController player;
 
+    public string weaponName;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -37,6 +39,35 @@ public class PointWeaponAtPlayer : StateMachineBehaviour
         {
             firepointTransform = weapon.firePoint.transform;
         }
+
+        if (!string.IsNullOrEmpty(weaponName))
+        {
+            foreach (Weapon weapon in animator.GetComponents<Weapon>())
+            {
+                if (weapon.weaponName == weaponName)
+                {
+                    this.weapon = weapon;
+                }
+            }
+
+            foreach (Weapon weapon in animator.GetComponentsInChildren<Weapon>())
+            {
+                if (weapon.weaponName == weaponName)
+                {
+                    this.weapon = weapon;
+                }
+            }
+
+            foreach (Weapon weapon in animator.GetComponentsInParent<Weapon>())
+            {
+                if (weapon.weaponName == weaponName)
+                {
+                    this.weapon = weapon;
+                }
+            }
+
+            firepointTransform = weapon.firePoint;
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -50,7 +81,8 @@ public class PointWeaponAtPlayer : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        firepointTransform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        if (resetOnExit)
+            firepointTransform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

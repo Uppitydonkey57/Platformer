@@ -34,7 +34,10 @@ public class WeaponEditor : Editor
             case Weapon.WeaponType.Projectile:
                 ShowParameter("multipleFirePoints");
                 if (weapon.multipleFirePoints)
+                {
                     ShowParameter("firePoints");
+                    ShowParameter("randomPoint");
+                }
                 else
                     ShowParameter("firePoint");
                 ShowParameter("projectilePrefab");

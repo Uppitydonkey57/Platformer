@@ -75,6 +75,8 @@ public class GameMaster : MonoBehaviour
 
         FindObjectOfType<SaveMusic>().MusicSave();
 
+        DOTween.Clear(true);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -88,7 +90,13 @@ public class GameMaster : MonoBehaviour
 
         FindObjectOfType<SaveMusic>().MusicSave();
 
+        DOTween.Clear(true);
+
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void OnDestroy()
+    {
     }
 
     // Update is called once per frame

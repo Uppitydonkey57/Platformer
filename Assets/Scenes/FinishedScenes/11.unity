@@ -21535,6 +21535,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4286582806420749730, guid: 9fc0bc0daa0a0c747bbdc80acf3126de,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286582806420749730, guid: 9fc0bc0daa0a0c747bbdc80acf3126de,
+        type: 3}
+      propertyPath: MinDistance
+      value: 59.66327
+      objectReference: {fileID: 0}
+    - target: {fileID: 4286582806420749730, guid: 9fc0bc0daa0a0c747bbdc80acf3126de,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4978424997312031148, guid: 9fc0bc0daa0a0c747bbdc80acf3126de,
         type: 3}
       propertyPath: activationRange

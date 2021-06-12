@@ -32,6 +32,7 @@ public class Weapon : MonoBehaviour
     public bool multipleFirePoints;
     public Transform firePoint;
     public Transform[] firePoints;
+    public bool randomPoint;
 
     public GameObject projectilePrefab;
     public float projectileSpeed;
@@ -75,9 +76,15 @@ public class Weapon : MonoBehaviour
 
                 case WeaponType.Projectile:
                     if (multipleFirePoints) {
-                        foreach (Transform tempFirePoint in firePoints) 
+                        if (!randomPoint)
                         {
-                            FireProjectile(tempFirePoint);
+                            foreach (Transform tempFirePoint in firePoints)
+                            {
+                                FireProjectile(tempFirePoint);
+                            }
+                        } else
+                        {
+                            FireProjectile(firePoints[UnityEngine.Random.Range(0, firePoints.Length - 1)]);
                         }
                     } else 
                     {

@@ -66,13 +66,13 @@ EditorBuildSettings:
     path: Assets/Scenes/FinishedScenes/20.unity
     guid: 80ce7cb160e515840b097e8a289fa084
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/BossFight.unity
+    path: Assets/Scenes/FinishedScenes/BossFight.unity
     guid: 5d09f5c5315dca24fa11c0fdba7a5971
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/Transition1.unity
+    path: Assets/Scenes/FinishedScenes/Transition1.unity
     guid: 03eb5fc34ed2e3b4ba58413216e0f972
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/Transition2.unity
+    path: Assets/Scenes/FinishedScenes/Transition2.unity
     guid: cab61d9bf9abe7b458c626a6f4ba194e
   - enabled: 1
     path: Assets/Scenes/FinishedScenes/w2l1.unity
@@ -107,4 +107,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InProgressScenes/WitchHut.unity
     guid: e87a77ebba5adbc4d8bd4da34643d4cd
+  - enabled: 1
+    path: Assets/Scenes/InProgressScenes/Credits.unity
+    guid: 728f30226a311e745986ba788019b2f7
   m_configObjects: {}

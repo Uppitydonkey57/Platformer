@@ -6,9 +6,4 @@ using UnityEngine;
 public abstract class Action : MonoBehaviour
 {
     public abstract void PerformAction();
-
-    private void OnDestroy()
-    {
-        DOTween.Clear(true);
-    }
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class FacePlayer : StateMachineBehaviour
 {
-    PlayerController player;
+    GameObject player;
+    public bool findObjectWithTag;
+    public string findTag;
 
     Rigidbody2D rb;
 
@@ -29,7 +31,12 @@ public class FacePlayer : StateMachineBehaviour
             transform = animator.GetComponentInParent<Transform>();
         }
 
-        player = FindObjectOfType<PlayerController>();
+        player = FindObjectOfType<PlayerController>().gameObject;
+
+        if (findObjectWithTag)
+        {
+            player = GameObject.FindGameObjectWithTag(findTag);
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
