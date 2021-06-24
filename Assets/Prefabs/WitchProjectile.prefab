@@ -56,6 +56,9 @@ MonoBehaviour:
   useDestroyTime: 1
   destroyWait: 4
   destroyTime: 1
+  sound: {fileID: 0}
+  targetAmount: 50
+  targetTag: Player
 --- !u!50 &4510081374706501706
 Rigidbody2D:
   serializedVersion: 4

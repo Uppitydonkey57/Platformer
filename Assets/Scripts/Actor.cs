@@ -83,7 +83,7 @@ public class Actor : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetFloat("Hp", maxHealth);
+            if (ParameterExists("Hp")) animator.SetFloat("Hp", maxHealth);
         }
 
         rb = GetComponent<Rigidbody2D>();
@@ -184,7 +184,6 @@ public class Actor : MonoBehaviour
                 if (useHitFlash && health > 0)
                 {
                     StartCoroutine(HitFlash());
-                    Debug.Log("HitFlash");
                 }
 
                 if (hitSounds != null && hitSounds.Length > 0)
@@ -198,7 +197,7 @@ public class Actor : MonoBehaviour
                     }
                 }
 
-                if (animator != null)
+                if (animator != null && ParameterExists("Hit"))
                     animator.SetTrigger("Hit");
 
                 Invoke(nameof(ShakeScreen), 0f);

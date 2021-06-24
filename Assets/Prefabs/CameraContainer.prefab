@@ -3341,7 +3341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647891049561082453}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.372826, y: 8.268293, z: -10}
+  m_LocalPosition: {x: -33.397278, y: 25.641823, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1647891050556758794}
@@ -4999,6 +4999,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1647891049561082475}
     m_Modifications:
+    - target: {fileID: 2684360483574622193, guid: 5d9e43af46561e247bdaedecbedade41,
+        type: 3}
+      propertyPath: mouseTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 2baafb928a6743146a7ded3a2ea95469, type: 3}
     - target: {fileID: 2684360483574622193, guid: 5d9e43af46561e247bdaedecbedade41,
         type: 3}
       propertyPath: sceneTransitionTime

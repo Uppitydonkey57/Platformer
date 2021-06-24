@@ -24,6 +24,15 @@ public class GameMaster : MonoBehaviour
 
     public Animator sceneTransitionAnimator;
 
+    public bool usingController;
+
+    Vector2 oldMousePos;
+
+    Vector2 oldLeftStick;
+    Vector2 oldRightStick;
+
+    public Texture2D mouseTexture;
+
     private void Start()
     {
         controls = new Controls();
@@ -73,7 +82,7 @@ public class GameMaster : MonoBehaviour
 
         yield return new WaitForSeconds(sceneTransitionTime);
 
-        FindObjectOfType<SaveMusic>().MusicSave();
+        if (FindObjectOfType<SaveMusic>() != null) FindObjectOfType<SaveMusic>().MusicSave();
 
         DOTween.Clear(true);
 
@@ -88,7 +97,7 @@ public class GameMaster : MonoBehaviour
 
         Debug.Log("Loading Scene");
 
-        FindObjectOfType<SaveMusic>().MusicSave();
+        if (FindObjectOfType<SaveMusic>() != null) FindObjectOfType<SaveMusic>().MusicSave();
 
         DOTween.Clear(true);
 
@@ -102,10 +111,56 @@ public class GameMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool leftMoved = false;
+        bool rightMoved = false;
+
+        bool mouseMoved = oldMousePos - Mouse.current.position.ReadValue() != new Vector2(0, 0);
+
+        if (Gamepad.current != null)
+        {
+            leftMoved = oldLeftStick - Gamepad.current.leftStick.ReadValue() != Vector2.zero;
+            rightMoved = oldRightStick - Gamepad.current.rightStick.ReadValue() != Vector2.zero;
+        }
+
+        if (Gamepad.current != null)
+        {
+            if (Gamepad.current.aButton.wasPressedThisFrame || rightMoved || leftMoved || Gamepad.current.dpad.ReadValue() != Vector2.zero || Gamepad.current.leftTrigger.ReadValue() > 0 || Gamepad.current.rightTrigger.ReadValue() > 0 || Gamepad.current.leftShoulder.ReadValue() > 0 || Gamepad.current.rightShoulder.ReadValue() > 0)
+            {
+                usingController = true;
+            }
+            else if (Keyboard.current.aKey.wasPressedThisFrame || Mouse.current.leftButton.isPressed || mouseMoved)
+            {
+                usingController = false;
+            }
+        } else
+        {
+            usingController = false;
+        }
+
         if (Application.isEditor && Keyboard.current.escapeKey.isPressed)
         {
             Application.Quit();
         }
+
+        oldMousePos = Mouse.current.position.ReadValue();
+
+        if (Gamepad.current != null)
+        {
+            oldLeftStick = Gamepad.current.leftStick.ReadValue();
+            oldRightStick = Gamepad.current.rightStick.ReadValue();
+        }
+    }
+
+    private void OnGUI()
+    {
+        if (usingController)
+        {
+            Cursor.SetCursor(mouseTexture, Camera.main.WorldToScreenPoint(player.transform.position), CursorMode.Auto);
+        } else
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+        Cursor.visible = !usingController;
     }
 
     private void Restart(InputAction.CallbackContext callback)

@@ -28597,8 +28597,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -658224861
+  m_SortingOrder: 30
   m_TargetDisplay: 0
 --- !u!224 &929233064
 RectTransform:
@@ -64920,6 +64920,7 @@ GameObject:
   - component: {fileID: 1397743265}
   - component: {fileID: 1397743267}
   - component: {fileID: 1397743266}
+  - component: {fileID: 1397743268}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -64943,7 +64944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -57.426064, y: 0}
+  m_AnchoredPosition: {x: -54.7, y: 0}
   m_SizeDelta: {x: 30.408, y: 8.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397743266
@@ -64966,7 +64967,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Left Click to shoot a fireball.
+  m_text: Left Click to shoot a fireball. \n Shoot at the mouse
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -64993,8 +64994,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 2
-  m_fontSizeBase: 2
+  m_fontSize: 1.7
+  m_fontSizeBase: 1.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -65029,7 +65030,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 4.322708, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -65043,6 +65044,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397743264}
   m_CullTransparentMesh: 1
+--- !u!114 &1397743268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397743264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66cd1c05bd7f864e8b74c564ab589ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1397743266}
+  keyboardText: Left Click to shoot a fireball. Shoot at the mouse
+  gamePadText: '*buttonWest* or *rightTrigger* to shoot a fireball. Shoot in the
+    direction of the Right Stick.'
 --- !u!1001 &1401945992
 PrefabInstance:
   m_ObjectHideFlags: 0

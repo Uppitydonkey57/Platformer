@@ -249,7 +249,7 @@ public class PlayerController : MonoBehaviour
         Vector2 move = Vector2.zero;
 
         //Moving the characters
-        move.x = horizontal;
+        move.x = Mathf.Round(horizontal);
 
         //Dampening
         if (Mathf.Abs(horizontal) < 0.01f)
@@ -497,8 +497,16 @@ public class PlayerController : MonoBehaviour
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-        Vector2 lookDirection = mousePos - (Vector2)weapon.firePoint.transform.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
+        float angle = 0;
+
+        if (!gm.usingController)
+        {
+            Vector2 lookDirection = mousePos - (Vector2)weapon.firePoint.transform.position;
+            angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
+        } else
+        {
+            angle = Mathf.Atan2(Gamepad.current.rightStick.ReadValue().x,Gamepad.current.rightStick.ReadValue().y) * Mathf.Rad2Deg * -1;
+        }
         weapon.firePoint.transform.rotation = Quaternion.Euler(0, 0, angle);
 
         weapon.Attack();

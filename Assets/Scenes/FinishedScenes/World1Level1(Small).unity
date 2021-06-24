@@ -27269,13 +27269,14 @@ GameObject:
   - component: {fileID: 879525886}
   - component: {fileID: 879525888}
   - component: {fileID: 879525887}
+  - component: {fileID: 879525889}
   m_Layer: 5
   m_Name: Space
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &879525886
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27315,7 +27316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Space To Jump
+  m_text: Press and hold space to Jump
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -27342,8 +27343,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -27392,6 +27393,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879525885}
   m_CullTransparentMesh: 1
+--- !u!114 &879525889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879525885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66cd1c05bd7f864e8b74c564ab589ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 879525887}
+  keyboardText: Press and hold Space to Jump
+  gamePadText: Press and hold *buttonSouth* or *LeftTrigger* to Jump
 --- !u!1 &1028473931
 GameObject:
   m_ObjectHideFlags: 0
@@ -27403,6 +27419,7 @@ GameObject:
   - component: {fileID: 1028473932}
   - component: {fileID: 1028473934}
   - component: {fileID: 1028473933}
+  - component: {fileID: 1028473935}
   m_Layer: 5
   m_Name: WASD
   m_TagString: Untagged
@@ -27449,9 +27466,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WASD
-
-    to move'
+  m_text: WASD to move
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -27478,8 +27493,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -27528,6 +27543,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028473931}
   m_CullTransparentMesh: 1
+--- !u!114 &1028473935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028473931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66cd1c05bd7f864e8b74c564ab589ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1028473933}
+  keyboardText: WASD to move
+  gamePadText: Left Stick or D-pad to move
 --- !u!1001 &1087342071
 PrefabInstance:
   m_ObjectHideFlags: 0

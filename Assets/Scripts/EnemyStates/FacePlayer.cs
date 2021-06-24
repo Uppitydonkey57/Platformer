@@ -14,6 +14,12 @@ public class FacePlayer : StateMachineBehaviour
 
     Transform transform;
 
+    public bool shouldFlip = true;
+
+    public bool resetOnExit;
+
+    public float offset;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -47,15 +53,19 @@ public class FacePlayer : StateMachineBehaviour
             Vector2 lookDirection = (Vector2)player.transform.position - rb.position;
             float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
-            rb.rotation = angle;
+            rb.rotation = angle + offset;
 
-            if (player.transform.position.x < rb.position.x && !isFlipped)
+
+            if (shouldFlip)
             {
-                Flip();
-            }
-            else if (player.transform.position.x > rb.position.x && isFlipped)
-            {
-                Flip();
+                if (player.transform.position.x < rb.position.x && !isFlipped)
+                {
+                    Flip();
+                }
+                else if (player.transform.position.x > rb.position.x && isFlipped)
+                {
+                    Flip();
+                }
             }
         }
     }
@@ -68,10 +78,14 @@ public class FacePlayer : StateMachineBehaviour
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (resetOnExit)
+        {
+            rb.rotation = 0;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -422,6 +422,7 @@ MonoBehaviour:
     type: 3}
   audioSource: {fileID: 0}
   hitSounds: []
+  deathSound: {fileID: 0}
   hitWait: 0
   DestroyOnDeath: 1
   DestroyCanvas: 0
@@ -457,6 +458,7 @@ MonoBehaviour:
   multipleFirePoints: 0
   firePoint: {fileID: 5077262687937127696}
   firePoints: []
+  randomPoint: 0
   projectilePrefab: {fileID: 9216892818336456651, guid: ca9d1b7630c523146b2dbb3894576f1e,
     type: 3}
   projectileSpeed: 10
@@ -568,13 +570,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8727672618064740413}
-  m_LocalRotation: {x: -0, y: -0, z: -0.4315645, w: 0.902082}
+  m_LocalRotation: {x: -0, y: -0, z: 0.083791494, w: 0.9964834}
   m_LocalPosition: {x: 0.61, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2558834913984732145}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1028.866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1089.613}
 --- !u!1001 &5077262688854977617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -605,7 +607,7 @@ PrefabInstance:
     - target: {fileID: -7602615976740648923, guid: a8789331bc99d4744b90b713ea0fb549,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.48860362
+      value: -0.5946496
       objectReference: {fileID: 0}
     - target: {fileID: -7602615976740648923, guid: a8789331bc99d4744b90b713ea0fb549,
         type: 3}
@@ -620,7 +622,7 @@ PrefabInstance:
     - target: {fileID: -7602615976740648923, guid: a8789331bc99d4744b90b713ea0fb549,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.8725059
+      value: 0.80398494
       objectReference: {fileID: 0}
     - target: {fileID: -7602615976740648923, guid: a8789331bc99d4744b90b713ea0fb549,
         type: 3}
@@ -980,7 +982,7 @@ PrefabInstance:
     - target: {fileID: 7346709440925988768, guid: a8789331bc99d4744b90b713ea0fb549,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8711098
+      value: 0.9561918
       objectReference: {fileID: 0}
     - target: {fileID: 7346709440925988768, guid: a8789331bc99d4744b90b713ea0fb549,
         type: 3}
@@ -995,7 +997,7 @@ PrefabInstance:
     - target: {fileID: 7346709440925988768, guid: a8789331bc99d4744b90b713ea0fb549,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.49108842
+      value: 0.29274103
       objectReference: {fileID: 0}
     - target: {fileID: 7346709440925988768, guid: a8789331bc99d4744b90b713ea0fb549,
         type: 3}

@@ -24,6 +24,8 @@ public class PlayerInRange : StateMachineBehaviour
 
     public bool reverse;
 
+    public bool booleanValue = true;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -40,10 +42,10 @@ public class PlayerInRange : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Physics2D.OverlapCircle(enemy.transform.position, range, playerLayer))
+        if (!reverse && Physics2D.OverlapCircle(enemy.transform.position, range, playerLayer) != null)
         {
             Set(animator);
-        } else if (reverse)
+        } else if (reverse && Physics2D.OverlapCircle(enemy.transform.position, range, playerLayer) == null)
         {
             Set(animator);
         }
@@ -68,12 +70,12 @@ public class PlayerInRange : StateMachineBehaviour
         else if (switchType == SwitchType.Boolean)
         {
             if (!useChance)
-                animator.SetBool(triggerName, true);
+                animator.SetBool(triggerName, booleanValue);
             else
             {
                 if (randomValue == 1)
                 {
-                    animator.SetBool(triggerName, true);
+                    animator.SetBool(triggerName, booleanValue);
                 }
             }
         }
