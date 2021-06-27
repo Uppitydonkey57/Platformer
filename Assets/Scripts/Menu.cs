@@ -52,4 +52,9 @@ public class Menu : MonoBehaviour
     {
         SFXMixer.SetFloat("Volume", volume);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

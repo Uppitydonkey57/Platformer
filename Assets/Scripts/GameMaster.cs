@@ -73,6 +73,8 @@ public class GameMaster : MonoBehaviour
         if (FindObjectOfType<SaveMusic>() != null)
             FindObjectOfType<SaveMusic>().MusicSave();
 
+        DOTween.Clear(true);
+
         SceneManager.LoadScene(sceneName);
     }
 

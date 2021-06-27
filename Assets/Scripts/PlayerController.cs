@@ -318,6 +318,7 @@ public class PlayerController : MonoBehaviour
             jumps = extraJumps;
             jumpBuffer = 0;
             velocity.y = jumpTakeOffSpeed;
+            if (jumpSound != null)
             source.PlayOneShot(jumpSound, 1f);
         } else if (jumpUp && jumpActivatedByInput)
         {
@@ -380,6 +381,7 @@ public class PlayerController : MonoBehaviour
             wallJumpingY = true;
             Invoke(nameof(SetWallJumpingXToFalse), wallJumpTimeX);
             Invoke(nameof(SetWallJumpingYToFalse), wallJumpTimeY);
+            if (wallJumpSound != null)
             source.PlayOneShot(wallJumpSound, 1f);
         }
 
@@ -397,6 +399,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpActivatedByInput = true;
             velocity.y = jumpTakeOffSpeed;
+            if (doubleJumpSound != null)
             source.PlayOneShot(doubleJumpSound, 1f);
             jumps--;
         }

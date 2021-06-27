@@ -217,6 +217,7 @@ public class Actor : MonoBehaviour
                         objectSource.outputAudioMixerGroup = audioSource.outputAudioMixerGroup;
                         objectSource.volume = audioSource.volume;
                         objectSource.pitch = audioSource.pitch;
+                        soundObject.transform.position = transform.position;
 
                         if (deathSound == null)
                         {

@@ -761,9 +761,9 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   velocityQue: []
   source: {fileID: -5033938517191900396}
-  jumpSound: {fileID: 8300000, guid: 641d338d242b5f64fb42a7d62cf69e2e, type: 3}
-  doubleJumpSound: {fileID: 8300000, guid: 1783af9902c999149bc329590565436c, type: 3}
-  wallJumpSound: {fileID: 8300000, guid: 1783af9902c999149bc329590565436c, type: 3}
+  jumpSound: {fileID: 0}
+  doubleJumpSound: {fileID: 0}
+  wallJumpSound: {fileID: 0}
 --- !u!58 &2554872033408382449
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -832,6 +832,7 @@ MonoBehaviour:
   multipleFirePoints: 0
   firePoint: {fileID: 1870583485}
   firePoints: []
+  randomPoint: 0
   projectilePrefab: {fileID: 9031168756110560950, guid: 307b12bfc2ec49449b1c62a245148235,
     type: 3}
   projectileSpeed: 20

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/TitleScreen.unity
+    path: Assets/Scenes/FinishedScenes/TitleScreen.unity
     guid: f7062b03a3e8208409dbbe2b9939432c
   - enabled: 1
     path: Assets/Scenes/FinishedScenes/World1Level1(Small).unity
@@ -105,9 +105,9 @@ EditorBuildSettings:
     path: Assets/Scenes/FinishedScenes/w2l10.unity
     guid: cc833370a2d26d64ea044247fb68640b
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/WitchHut.unity
+    path: Assets/Scenes/FinishedScenes/WitchHut.unity
     guid: e87a77ebba5adbc4d8bd4da34643d4cd
   - enabled: 1
-    path: Assets/Scenes/InProgressScenes/Credits.unity
+    path: Assets/Scenes/FinishedScenes/Credits.unity
     guid: 728f30226a311e745986ba788019b2f7
   m_configObjects: {}

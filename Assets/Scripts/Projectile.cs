@@ -46,11 +46,6 @@ public class Projectile : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destruct(collision.gameObject.GetComponent<Actor>(), true);
@@ -97,6 +92,8 @@ public class Projectile : MonoBehaviour
             objectSource.outputAudioMixerGroup = source.outputAudioMixerGroup;
             objectSource.volume = source.volume;
             objectSource.pitch = source.pitch;
+            objectSource.maxDistance = 50f;
+            soundObject.transform.position = transform.position;
 
             objectSource.PlayOneShot(sound);
 

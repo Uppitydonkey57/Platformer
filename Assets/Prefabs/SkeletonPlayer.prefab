@@ -177,6 +177,10 @@ MonoBehaviour:
   isFacingRight: 0
   velocity: {x: 0, y: 0}
   velocityQue: []
+  source: {fileID: 0}
+  jumpSound: {fileID: 0}
+  doubleJumpSound: {fileID: 0}
+  wallJumpSound: {fileID: 0}
 --- !u!58 &3689022411662100978
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -245,6 +249,7 @@ MonoBehaviour:
   multipleFirePoints: 0
   firePoint: {fileID: 1172819113619172030}
   firePoints: []
+  randomPoint: 0
   projectilePrefab: {fileID: 9031168756110560950, guid: 307b12bfc2ec49449b1c62a245148235,
     type: 3}
   projectileSpeed: 20
@@ -284,9 +289,11 @@ MonoBehaviour:
   healRate: 0
   healthBar: {fileID: 0}
   deathParticle: {fileID: 0}
-  audioSource: {fileID: 0}
-  hitSounds: []
-  deathSound: {fileID: 0}
+  audioSource: {fileID: 1678631412732653506}
+  hitSounds:
+  - {fileID: 8300000, guid: 297283f350f2a094b82a0f71242ea364, type: 3}
+  - {fileID: 8300000, guid: e96c149ee11dfa144a1599bcb3b6f4be, type: 3}
+  deathSound: {fileID: 8300000, guid: c9661022d000f404388574f725eb1771, type: 3}
   hitWait: 0.6
   DestroyOnDeath: 0
   DestroyCanvas: 0

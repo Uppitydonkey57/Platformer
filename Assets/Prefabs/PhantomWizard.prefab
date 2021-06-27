@@ -184,6 +184,7 @@ MonoBehaviour:
   multipleFirePoints: 0
   firePoint: {fileID: 3608247532900733012}
   firePoints: []
+  randomPoint: 0
   projectilePrefab: {fileID: 9216892818336456651, guid: ca9d1b7630c523146b2dbb3894576f1e,
     type: 3}
   projectileSpeed: 6
@@ -225,8 +226,9 @@ MonoBehaviour:
   deathParticle: {fileID: 4780718744445584218, guid: 71317277a59645b4d82f36d46db50a3d,
     type: 3}
   audioSource: {fileID: 4286582806420749730}
-  hitSounds: []
-  deathSound: {fileID: 0}
+  hitSounds:
+  - {fileID: 8300000, guid: 3465e8c805b6d3642abf05ab2124cf50, type: 3}
+  deathSound: {fileID: 8300000, guid: 3465e8c805b6d3642abf05ab2124cf50, type: 3}
   hitWait: 0
   DestroyOnDeath: 1
   DestroyCanvas: 0
