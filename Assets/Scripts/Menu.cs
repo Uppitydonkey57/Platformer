@@ -13,34 +13,43 @@ public class Menu : MonoBehaviour
     public AudioMixer musicMixer;
     public TMP_Dropdown controlsDropdown;
 
+    Resolution[] resolutions;
+    public TMP_Dropdown dropdown;
+
+    public Toggle fullscreenToggle;
+
     private void Start()
     {
         gm = FindObjectOfType<GameMaster>();
 
-        PlayerPrefs.SetString("ControlScheme", "Keyboard");
+        resolutions = Screen.resolutions;
 
-        /*if (PlayerPrefs.GetString("ControlScheme") == "Controller")
+        dropdown.ClearOptions();
+
+        List<string> options = new List<string>();
+
+        int currentResolutionIndex = 0;
+        for (int i  = 0; i < resolutions.Length; i++)
         {
-            controlsDropdown.value = 1;
-        }*/
+            string option = resolutions[i].width + " x " + resolutions[i].height;
+            options.Add(option);
+
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+
+        dropdown.AddOptions(options);
+        dropdown.value = currentResolutionIndex;
+        dropdown.RefreshShownValue();
+
+        fullscreenToggle.isOn = Screen.fullScreen;
     }
 
     public void LoadScene(string sceneName)
     {
         StartCoroutine(gm.LoadLevel(sceneName));
-    }
-
-    public void UsingController(int choice)
-    {
-        if (choice == 0)
-        {
-            PlayerPrefs.SetString("ControlScheme", "Keyboard");
-        }
-
-        else if (choice == 1)
-        {
-            PlayerPrefs.SetString("ControlScheme", "Controller");
-        }
     }
 
     public void SetVolumeMusic(float volume)
@@ -56,5 +65,16 @@ public class Menu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void FullScreen(bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
+    }
+
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 }

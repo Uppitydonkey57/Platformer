@@ -71333,9 +71333,15 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 578903583
-  m_SortingOrder: 0
+  m_SortingLayerID: -658224861
+  m_SortingOrder: 40
   m_TargetDisplay: 0
+--- !u!95 &1911476139 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1050382880134654385, guid: 2c738a35df30c934f93952a350f4f8b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 22675543}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2043034945
 GameObject:
   m_ObjectHideFlags: 0
@@ -71346,6 +71352,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2043034946}
   - component: {fileID: 2043034947}
+  - component: {fileID: 2043034949}
+  - component: {fileID: 2043034948}
   m_Layer: 0
   m_Name: LevelParent
   m_TagString: Untagged
@@ -71398,6 +71406,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2043034948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043034945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90be96f77af20d44b49ac5629961b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1911476139}
+  triggerName: IsMoving
+--- !u!114 &2043034949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043034945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227b3d46c36dd974198c2a82687b231b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 2043034948}
 --- !u!4 &2069986760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2554872033408382463, guid: 2c738a35df30c934f93952a350f4f8b5,

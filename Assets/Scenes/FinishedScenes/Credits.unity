@@ -288,7 +288,8 @@ PrefabInstance:
       propertyPath: m_LocalRotation.x
       value: -0.050834555
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1128120914, guid: 2c738a35df30c934f93952a350f4f8b5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2c738a35df30c934f93952a350f4f8b5, type: 3}
 --- !u!1 &532625571
 GameObject:
@@ -8329,7 +8330,7 @@ MonoBehaviour:
 
     Developer: Me
 
-    Music: Conrad Mcintosh
+    Music: Conrad McIntosh
 
     Assets: Dotween
 
@@ -8340,10 +8341,10 @@ MonoBehaviour:
     Other People That Helped!
 
     Carter,
-    Patrick, Peyton, Ethan, Dad, Mats, Spencer, Mikey, and Sophie
+    Patrick, Peyton, Ethan, Dad, Mats, Spencer, Mikey, Sophie and Uncle Brad
 
-    And thanks
-    to anyone who I forgot to mention!'
+    And
+    thanks to anyone who I forgot to mention!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
